@@ -103,8 +103,8 @@ export async function POST(req: Request) {
 
   return new Response("", { status: 200 });
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
+  // console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+  // console.log("Webhook body:", body);
 
-  return new Response("", { status: 200 });
+  // return new Response("", { status: 200 });
 }
