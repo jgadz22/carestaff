@@ -274,3 +274,38 @@ body {
 .react-datepicker__time-list-item--selected {
   background-color: #624cf5 !important;
 }
+
+/* Clerk */
+
+.cl-footer,
+.cl-card {
+  @apply backdrop-blur-xl bg-white/30;
+}
+
+/* Google Translate */
+
+.translated-ltr {
+  @apply mt-[-40px];
+}
+
+.goog-te-banner-frame {
+  @apply hidden -mt-20;
+}
+
+.goog-logo-link {
+  @apply hidden !important;
+}
+
+.goog-te-gadget {
+  @apply text-transparent !important;
+}
+
+.goog-te-combo {
+  @apply text-black border-2;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.goog-te-gadget-icon {
+  @apply hidden !important;
+}
