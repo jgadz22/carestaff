@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
-import TranslateWithGoogle from "@/components/shared/TranslateWithGoogle";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,14 +20,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body className={poppins.variable}>{children}</body>
-        <TranslateWithGoogle />
       </html>
     </ClerkProvider>
   );
