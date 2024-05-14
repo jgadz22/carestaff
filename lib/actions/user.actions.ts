@@ -6,7 +6,19 @@ import { connectToDatabase } from "@/lib/database";
 import User from "@/lib/database/models/user.model";
 import { handleError } from "@/lib/utils";
 
-import { CreateUserParams, UpdateUserParams } from "@/types/index";
+import {
+  CreateUserParams,
+  DeleteUser,
+  GetAllUsersParams,
+  UpdateUser,
+  UpdateUserParams,
+} from "@/types/index";
+
+const populateUser = (query: any) => {
+  return query.populate({
+    path: "_id",
+  });
+};
 
 export async function createUser(user: CreateUserParams) {
   try {
@@ -77,6 +89,69 @@ export async function deleteUser(clerkId: string) {
     revalidatePath("/");
 
     return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null;
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+export async function getAllUsers({
+  query,
+  limit = 6,
+  page,
+  position,
+}: GetAllUsersParams) {
+  try {
+    await connectToDatabase();
+
+    const conditions = {};
+
+    const userQuery = User.find(conditions)
+      .sort({ createdAt: "desc" })
+      .skip(0)
+      .limit(limit);
+
+    const user = await populateUser(userQuery);
+    const userCount = await User.countDocuments(conditions);
+
+    return {
+      data: JSON.parse(JSON.stringify(user)),
+      totalPages: Math.ceil(userCount / limit),
+    };
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// UPDATE
+export async function updatesUser({ userId, user, path }: UpdateUser) {
+  try {
+    await connectToDatabase();
+
+    // const eventToUpdate = await User.findById(user._id)
+    // if (!eventToUpdate || eventToUpdate.organizer.toHexString() !== userId) {
+    //   throw new Error('Unauthorized or event not found')
+    // }
+
+    const updatedEvent = await User.findByIdAndUpdate(
+      user._id,
+      { ...user },
+      { new: true }
+    );
+    revalidatePath(path);
+
+    return JSON.parse(JSON.stringify(updatedEvent));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+// DELETE
+export async function deleteMyid({ userId, path }: DeleteUser) {
+  try {
+    await connectToDatabase();
+
+    const deletedMyid = await User.findByIdAndDelete(userId);
+    if (deletedMyid) revalidatePath(path);
   } catch (error) {
     handleError(error);
   }

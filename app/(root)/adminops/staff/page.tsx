@@ -1,8 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Table,
   TableBody,
@@ -13,12 +14,35 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { getAllUsers } from "@/lib/actions/user.actions";
+import { IUser } from "@/lib/database/models/user.model";
+import Dropdown from "@/components/shared/Dropdown";
+import Tablerow from "@/components/shared/Tablerow";
 
 const StaffPage = () => {
+  const [users, setUsers] = useState<IUser[]>([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const usersData = await getAllUsers({
+          query: "",
+          position: "",
+          page: 1,
+          limit: 10,
+        });
+        setUsers(usersData?.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
   return (
     <>
       <div className="wrapper">
-        <p className="h3-bold uppercase">Staff List</p>
+        <p className="h3-bold uppercase">Users List</p>
 
         <Separator className="h-2 my-5 bg-[#53D1D1]" />
 
@@ -55,21 +79,15 @@ const StaffPage = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell>
-                  <Image
-                    src="/assets/icons/edit.svg"
-                    width={25}
-                    height={25}
-                    alt="Edit icon"
-                    className="cursor-pointer"
-                  />
-                </TableCell>
-                <TableCell>jgadz22@gmail.com</TableCell>
-                <TableCell>Juan</TableCell>
-                <TableCell>Dela Cruz</TableCell>
-                <TableCell>ADMIN</TableCell>
-              </TableRow>
+              {users.length > 0 ? (
+                users.map((user) => {
+                  return <Tablerow user={user} />;
+                })
+              ) : (
+                <TableRow>
+                  <TableCell>No Records</TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </div>

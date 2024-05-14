@@ -13,6 +13,32 @@ export type UpdateUserParams = {
   photo: string;
 };
 
+export type UpdateUser = {
+  userId: string;
+  user: {
+    _id: string;
+    clerkId: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    photo: string;
+    position: string;
+  };
+  path: string;
+};
+
+export type DeleteUser = {
+  userId: string;
+  path: string;
+};
+
+export type GetAllUsersParams = {
+  query: string;
+  position: string;
+  limit: number;
+  page: number;
+};
+
 // ====== URL QUERY PARAMS
 export type UrlQueryParams = {
   params: string;
