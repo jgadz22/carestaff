@@ -34,7 +34,6 @@ export type DeleteUser = {
 
 export type GetAllUsersParams = {
   query: string;
-  position: string;
   limit: number;
   page: number;
 };

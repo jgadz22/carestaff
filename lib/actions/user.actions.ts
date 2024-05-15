@@ -24,7 +24,7 @@ export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
 
-    const newUser = await User.create({ ...user, position: "block" });
+    const newUser = await User.create({ ...user, position: "User" });
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     handleError(error);
@@ -98,16 +98,23 @@ export async function getAllUsers({
   query,
   limit = 6,
   page,
-  position,
 }: GetAllUsersParams) {
   try {
     await connectToDatabase();
 
-    const conditions = {};
+    const titleCondition = query
+      ? {
+          email: { $regex: query, $options: "i" },
+        }
+      : {};
+    const conditions = {
+      $and: [titleCondition],
+    };
 
+    const skipAmount = (Number(page) - 1) * limit;
     const userQuery = User.find(conditions)
       .sort({ createdAt: "desc" })
-      .skip(0)
+      .skip(skipAmount)
       .limit(limit);
 
     const user = await populateUser(userQuery);

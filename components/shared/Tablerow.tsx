@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/table";
 import Image from "next/image";
 import Dropdown from "./Dropdown";
 import { useRouter } from "next/navigation";
@@ -21,10 +13,6 @@ const Tablerow = ({ user }: any) => {
   const handleOnChange = (value: any) => {
     setRole(value);
   };
-
-  useEffect(() => {
-    console.log(role);
-  }, [role]);
 
   const onUpdate = async () => {
     try {
@@ -45,7 +33,7 @@ const Tablerow = ({ user }: any) => {
   return (
     <>
       <TableRow key={user._id}>
-        <TableCell>
+        <TableCell className="text-center">
           <button onClick={onUpdate}>
             <Image
               src="/assets/icons/edit.svg"
@@ -56,10 +44,10 @@ const Tablerow = ({ user }: any) => {
             />
           </button>
         </TableCell>
-        <TableCell>{user.email}</TableCell>
-        <TableCell>{user.firstName}</TableCell>
-        <TableCell>{user.lastName}</TableCell>
-        <TableCell>
+        <TableCell className="text-center">{user.email}</TableCell>
+        <TableCell className="text-center">{user.firstName}</TableCell>
+        <TableCell className="text-center">{user.lastName}</TableCell>
+        <TableCell className="text-center">
           <Dropdown onChangeHandler={handleOnChange} value={user.position} />
         </TableCell>
       </TableRow>

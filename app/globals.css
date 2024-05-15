@@ -309,3 +309,7 @@ body {
 .goog-te-gadget-icon {
   @apply hidden !important;
 }
+
+.horizontal-writing {
+  writing-mode: horizontal-tb;
+}

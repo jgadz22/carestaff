@@ -10,9 +10,9 @@ import {
 
 const Dropdown = ({ value, onChangeHandler }: any) => {
   const [roles, setRoles] = useState([
-    { _id: "1", position: "admin" },
-    { _id: "2", position: "staff" },
-    { _id: "3", position: "user" },
+    { _id: "1", position: "Admin" },
+    { _id: "2", position: "Staff" },
+    { _id: "3", position: "User" },
   ]);
 
   const [selectedValue, setSelectedValue] = useState(value);
@@ -30,7 +30,7 @@ const Dropdown = ({ value, onChangeHandler }: any) => {
       <Select onValueChange={handleChange} value={selectedValue}>
         <SelectTrigger className="select-field">
           <SelectValue>
-            {roles.find((role) => role._id === selectedValue)?.position ||
+            {roles.find((role) => role.position === selectedValue)?.position ||
               "Role"}
           </SelectValue>
         </SelectTrigger>
@@ -38,7 +38,7 @@ const Dropdown = ({ value, onChangeHandler }: any) => {
           {roles.map((role) => (
             <SelectItem
               key={role._id}
-              value={role._id}
+              value={role.position}
               className="select-item p-regular-14"
             >
               {role.position}

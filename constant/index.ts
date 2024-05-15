@@ -1,7 +1,7 @@
 export const adminHeaderLinks = [
   {
-    label: "Staff",
-    route: "/adminops/staff",
+    label: "User",
+    route: "/adminops/user",
     image: "/assets/icons/staff.png",
   },
   {
