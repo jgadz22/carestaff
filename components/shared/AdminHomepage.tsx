@@ -1,17 +1,19 @@
 "use client";
 
-import { adminHeaderLinks } from "@/constant";
+import { adminHeaderLinks, staffHeaderLinks } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import BoxButton from "./BoxButton";
 
-const AdminHomepage = () => {
+const AdminHomepage = ({ userPosition }: any) => {
   const pathname = usePathname();
+  const links = userPosition === "Admin" ? adminHeaderLinks : staffHeaderLinks;
+
   return (
     <>
       <ul className="flex-center w-full flex-col items-start gap-5 md:flex-row py-10">
-        {adminHeaderLinks.map((link) => {
+        {links.map((link) => {
           const isActive = pathname === link.route;
 
           return (

@@ -1,18 +1,21 @@
-import AdminHomepage from "@/components/shared/AdminHomepage";
+import Footer from "@/components/shared/Footer";
+import Header from "@/components/shared/Header";
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-import React from "react";
-
-const AdminPage = async () => {
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const { sessionClaims } = auth();
 
   const userId = sessionClaims?.userId as any;
   const user = await getUserById(userId);
-  console.log(user);
   return (
-    <>
-      <div className="wrapper">
+    <div className="flex h-screen flex-col">
+      <Header userPosition={user.position} />
+      <main className="flex-1">
         {user.position === "User" ? (
           <>
             <div className="w-full flex-center">
@@ -28,11 +31,10 @@ const AdminPage = async () => {
             </div>
           </>
         ) : (
-          <AdminHomepage userPosition={user.position} />
+          children
         )}
-      </div>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
-};
-
-export default AdminPage;
+}

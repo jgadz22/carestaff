@@ -7,23 +7,28 @@ import { useRouter } from "next/navigation";
 import { updatesUser } from "@/lib/actions/user.actions";
 
 const Tablerow = ({ user }: any) => {
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState(user.position);
+  const [isDisabled, setIsDisabled] = useState(true);
   const router = useRouter();
 
   const handleOnChange = (value: any) => {
     setRole(value);
   };
 
+  useEffect(() => {
+    setIsDisabled(role === user.position);
+  }, [role, user.position]);
+
   const onUpdate = async () => {
     try {
       const updatedEvent = await updatesUser({
         userId: user._id,
         user: { ...user, position: role },
-        path: `/adminops/staff`,
+        path: `/adminops/user`,
       });
 
       if (updatedEvent) {
-        router.push(`/adminops/staff`);
+        router.push(`/adminops/user`);
       }
     } catch (error) {
       console.log(error);
@@ -34,13 +39,21 @@ const Tablerow = ({ user }: any) => {
     <>
       <TableRow key={user._id}>
         <TableCell className="text-center">
-          <button onClick={onUpdate}>
+          <button
+            onClick={onUpdate}
+            disabled={isDisabled}
+            className={
+              isDisabled
+                ? "p-1"
+                : "p-1 hover:border-2 hover:border-green-400 rounded-md"
+            }
+          >
             <Image
               src="/assets/icons/edit.svg"
               width={25}
               height={25}
               alt="Edit icon"
-              className="cursor-pointer"
+              className="cursor-pointer:"
             />
           </button>
         </TableCell>

@@ -8,7 +8,7 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import NavItems from "./NavItems";
 import { Separator } from "../ui/separator";
 
-const Header = () => {
+const Header = ({ userPosition }: any) => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -20,7 +20,7 @@ const Header = () => {
       <div className="wrapper flex-between">
         <Link
           href="/adminops"
-          className="w-56 md:w-72 transition-all duration-500"
+          className="w-56 lg:w-72 transition-all duration-500"
         >
           <Image
             src="/assets/images/care-staff-logo.jpg"
@@ -33,7 +33,7 @@ const Header = () => {
         <SignedIn>
           <div className="flex w-32 justify-end gap-5">
             <nav className="md:flex-between hidden">
-              <NavItems />
+              <NavItems userPosition={userPosition} />
             </nav>
 
             <UserButton afterSignOutUrl="/" />
@@ -91,7 +91,7 @@ const Header = () => {
 
           <div className="py-4 flex flex-col cursor-pointer mt-5">
             <ul className="flex w-full flex-col items-start gap-5 text-black">
-              <NavItems />
+              <NavItems userPosition={userPosition} />
             </ul>
           </div>
         </div>
