@@ -12,8 +12,7 @@ import {
 } from "@/components/ui/table";
 import Tablerow from "./Tablerow";
 
-const UserTable = ({ usersData }: any) => {
-  console.log(usersData);
+const UserTable = ({ usersData }: { usersData: any[] }) => {
   return (
     <>
       <Table>
@@ -40,7 +39,7 @@ const UserTable = ({ usersData }: any) => {
         <TableBody>
           {usersData?.length > 0 ? (
             usersData?.map((user: any) => {
-              return <Tablerow user={user} />;
+              return <Tablerow key={user._id} user={user} />;
             })
           ) : (
             <TableRow>

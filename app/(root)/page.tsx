@@ -1,19 +1,14 @@
-import Header from "@/components/shared/Header";
 import UserFooter from "@/components/shared/UserFooter";
 import UserHeader from "@/components/shared/UserHeader";
-import { getUserById } from "@/lib/actions/user.actions";
-import { auth } from "@clerk/nextjs/server";
 
 export default async function Home() {
-  const { sessionClaims } = auth();
-
-  const userId = sessionClaims?.userId as any;
-  const user = await getUserById(userId);
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <UserHeader />
-      <section className="">Homepage</section>
+      <main className="flex-1">
+        <section>Homepage</section>
+      </main>
       <UserFooter />
-    </>
+    </div>
   );
 }
