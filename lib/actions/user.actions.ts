@@ -96,33 +96,34 @@ export async function deleteUser(clerkId: string) {
 
 export async function getAllUsers({
   query,
-  limit = 6,
+  limit = 10,
   page,
 }: GetAllUsersParams) {
   try {
     await connectToDatabase();
 
-    const titleCondition = query
+    const emailCondition = query
       ? {
           email: { $regex: query, $options: "i" },
         }
       : {};
     const conditions = {
-      $and: [titleCondition],
+      $and: [emailCondition],
     };
-
     const skipAmount = (Number(page) - 1) * limit;
-    const userQuery = User.find(conditions)
-      .sort({ createdAt: "desc" })
+
+    const sortCondition = { createdAt: "desc", _id: "asc" } as any;
+    const usersQuery = User.find(conditions)
+      .sort(sortCondition)
       .skip(skipAmount)
       .limit(limit);
 
-    const user = await populateUser(userQuery);
-    const userCount = await User.countDocuments(conditions);
+    const users = await populateUser(usersQuery);
+    const usersCount = await User.countDocuments(conditions);
 
     return {
-      data: JSON.parse(JSON.stringify(user)),
-      totalPages: Math.ceil(userCount / limit),
+      data: JSON.parse(JSON.stringify(users)),
+      totalPages: Math.ceil(usersCount / limit),
     };
   } catch (error) {
     handleError(error);

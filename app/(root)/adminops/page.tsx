@@ -9,7 +9,6 @@ const AdminPage = async () => {
 
   const userId = sessionClaims?.userId as any;
   const user = await getUserById(userId);
-  console.log(user);
   return (
     <>
       <div className="wrapper">

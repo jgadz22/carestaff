@@ -5,6 +5,7 @@ import Dropdown from "./Dropdown";
 import { useRouter } from "next/navigation";
 import { updatesUser } from "@/lib/actions/user.actions";
 import { useToast } from "@/components/ui/use-toast";
+import { SquarePen } from "lucide-react";
 
 const Tablerow = ({ user }: { user: any }) => {
   const [role, setRole] = useState(user.position);
@@ -33,7 +34,7 @@ const Tablerow = ({ user }: { user: any }) => {
         toast({
           variant: "success",
           title: "Successfully",
-          description: "Updating the Role of User.",
+          description: "Updated the Role of User.",
         });
         router.push(`/adminops/user`);
       }
@@ -55,16 +56,16 @@ const Tablerow = ({ user }: { user: any }) => {
           disabled={isDisabled}
           className={
             isDisabled
-              ? "p-1"
+              ? "p-1 "
               : "p-1 hover:border-2 hover:border-green-400 rounded-md"
           }
         >
-          <Image
-            src="/assets/icons/edit.svg"
-            width={25}
-            height={25}
-            alt="Edit icon"
-            className={isDisabled ? "" : "cursor-pointer"}
+          <SquarePen
+            className={
+              isDisabled
+                ? "cursor-not-allowed text-violet-300"
+                : "text-violet-800 cursor-pointer hover:text-violet-500"
+            }
           />
         </button>
       </TableCell>

@@ -7,6 +7,7 @@ import Search from "@/components/shared/Search";
 import UserTable from "@/components/shared/UserTable";
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
+import Pagination from "@/components/shared/Pagination";
 
 const StaffPage = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
@@ -20,26 +21,26 @@ const StaffPage = async ({ searchParams }: SearchParamProps) => {
   const usersData = await getAllUsers({
     query: searchText,
     page,
-    limit: 2,
+    limit: 1,
   });
+
+  const totalPages = usersData?.totalPages ? usersData?.totalPages : 0;
 
   return (
     <>
       <div className="wrapper">
         {user.position === "Staff" ? (
-          <>
-            <div className="w-full flex-center">
-              <p>
-                Your not allowed to go here. Please go back to{" "}
-                <Link
-                  href="/adminops"
-                  className="p-bold-16 underline underline-offset-8"
-                >
-                  Homepage
-                </Link>
-              </p>
-            </div>
-          </>
+          <div className="w-full flex-center">
+            <p>
+              You're not allowed to go here. Please go back to{" "}
+              <Link
+                href="/adminops"
+                className="p-bold-16 underline underline-offset-8"
+              >
+                Homepage
+              </Link>
+            </p>
+          </div>
         ) : (
           <>
             <p className="h3-bold uppercase">Users List</p>
@@ -49,8 +50,15 @@ const StaffPage = async ({ searchParams }: SearchParamProps) => {
               <Search />
             </div>
 
-            <div className="flex-center py-5">
+            <div className="flex-center py-5 gap-5 flex-col">
               <UserTable usersData={usersData?.data} />
+              {totalPages > 1 && (
+                <Pagination
+                  urlParamName="page"
+                  page={page}
+                  totalPages={totalPages}
+                />
+              )}
             </div>
           </>
         )}
