@@ -15,7 +15,9 @@ const JobListPage = () => {
         <Button>
           <Link href="/adminops/joblist/importfile">Import files</Link>
         </Button>
-        <Button>Create new Job</Button>
+        <Button>
+          <Link href="/adminops/joblist/addjob">Create new Job</Link>
+        </Button>
       </div>
     </div>
   );

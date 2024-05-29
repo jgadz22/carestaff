@@ -1,7 +1,7 @@
 import { Schema, model, models, Document } from "mongoose";
 
 export interface IJobs extends Document {
-  jobNumber?: string;
+  jobNumber: string;
   recruitmentCode?: string;
   projectHeading?: string;
   companyNumber?: string;
@@ -52,10 +52,11 @@ export interface IJobs extends Document {
   memo?: string;
   secondMemo?: string;
   webMediaDisclosureOrNonDisclosure?: string;
+  createdBy?: { _id: string; firstName: string; lastName: string };
 }
 
 const JobsSchema = new Schema({
-  jobNumber: { type: String, required: false },
+  jobNumber: { type: String, required: true, unique: true },
   recruitmentCode: { type: String, required: false },
   projectHeading: { type: String, required: false },
   companyNumber: { type: String, required: false },
@@ -106,6 +107,7 @@ const JobsSchema = new Schema({
   memo: { type: String, required: false },
   secondMemo: { type: String, required: false },
   webMediaDisclosureOrNonDisclosure: { type: String, required: false },
+  createdBy: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 const Jobs = models.Jobs || model("Jobs", JobsSchema);

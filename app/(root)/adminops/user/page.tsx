@@ -45,7 +45,7 @@ const StaffPage = async ({ searchParams }: SearchParamProps) => {
           <>
             <p className="h3-bold uppercase">Users List</p>
 
-            <Separator className="h-2 my-5 bg-[#53D1D1]" />
+            <Separator className="h-2 mt-5 mb-10 bg-[#53D1D1]" />
             <div className="flex gap-3 relative w-full">
               <Search />
             </div>

@@ -38,7 +38,7 @@ const ImportFileUpload = ({ userId }: any) => {
       "municipalityHokkaido",
     "Work location (municipality) Aomori (pulldown 3)": "municipalityAomori",
     "Work location (municipality) Iwate (pulldown 4)": "municipalityIwate",
-    "Work location (municipality) Akita (pulldown 5)": "municipalityAkita",
+    "Work location (city/town/village) Akita (pulldown 5)": "municipalityAkita",
     "Work location (municipality) Miyagi (pulldown 6)": "municipalityMiyagi",
     "Work location (municipality) Fukushima (pulldown 7)":
       "municipalityFukushima",
@@ -81,9 +81,7 @@ const ImportFileUpload = ({ userId }: any) => {
       "webMediaDisclosureOrNonDisclosure",
   };
 
-  const handleFileUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFileUpload = async (event: any) => {
     const file = event.target.files?.[0];
     if (!file) {
       setError("No file selected");
@@ -116,7 +114,8 @@ const ImportFileUpload = ({ userId }: any) => {
               newRow[key] = row[key];
             }
           }
-          return newRow;
+
+          return { ...newRow, createdBy: userId };
         });
         setParsedData(data);
         setError(null);
@@ -145,7 +144,7 @@ const ImportFileUpload = ({ userId }: any) => {
             newRow[key] = row[key];
           }
         }
-        return newRow;
+        return { ...newRow, createdBy: userId };
       });
 
       setParsedData(json);
