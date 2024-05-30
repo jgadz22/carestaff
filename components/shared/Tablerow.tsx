@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { TableCell, TableRow } from "@/components/ui/table";
-import Image from "next/image";
 import Dropdown from "./Dropdown";
 import { useRouter } from "next/navigation";
 import { updatesUser } from "@/lib/actions/user.actions";

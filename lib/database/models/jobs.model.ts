@@ -53,6 +53,7 @@ export interface IJobs extends Document {
   secondMemo?: string;
   webMediaDisclosureOrNonDisclosure?: string;
   createdBy?: { _id: string; firstName: string; lastName: string };
+  createdAt: Date;
 }
 
 const JobsSchema = new Schema({
@@ -108,6 +109,7 @@ const JobsSchema = new Schema({
   secondMemo: { type: String, required: false },
   webMediaDisclosureOrNonDisclosure: { type: String, required: false },
   createdBy: { type: Schema.Types.ObjectId, ref: "User" },
+  createdAt: { type: Date, default: Date.now },
 });
 
 const Jobs = models.Jobs || model("Jobs", JobsSchema);

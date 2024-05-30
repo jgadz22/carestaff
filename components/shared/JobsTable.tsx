@@ -10,36 +10,36 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import Tablerow from "./Tablerow";
+import JobsTableRow from "./JobsTableRow";
 
-const UserTable = ({ usersData }: { usersData: any[] }) => {
+const JobsTable = ({ jobsData }: { jobsData: any[] }) => {
   return (
     <>
       <Table>
-        <TableCaption>A list of your recent added staff.</TableCaption>
+        <TableCaption>A list of your recent added job.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="text-center">
               <p className="min-w-[150px]">Action</p>
             </TableHead>
             <TableHead className="text-center">
-              <p className="min-w-[150px]">Email Address</p>
+              <p className="min-w-[150px]">Job Number</p>
             </TableHead>
             <TableHead className="text-center">
-              <p className="min-w-[150px]">First Name</p>
+              <p className="min-w-[150px]">Job Tile</p>
             </TableHead>
             <TableHead className="text-center">
-              <p className="min-w-[150px]">Last Name</p>
+              <p className="min-w-[150px]">Industry</p>
             </TableHead>
             <TableHead className="text-center">
-              <p className="min-w-[150px]">Role</p>
+              <p className="min-w-[150px]">Work Location</p>
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {usersData?.length > 0 ? (
-            usersData?.map((user: any) => {
-              return <Tablerow key={user._id} user={user} />;
+          {jobsData?.length > 0 ? (
+            jobsData?.map((job: any) => {
+              return <JobsTableRow key={job._id} job={job} />;
             })
           ) : (
             <TableRow>
@@ -52,4 +52,4 @@ const UserTable = ({ usersData }: { usersData: any[] }) => {
   );
 };
 
-export default UserTable;
+export default JobsTable;

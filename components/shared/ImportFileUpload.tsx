@@ -162,7 +162,7 @@ const ImportFileUpload = ({ userId }: any) => {
         const bulkimport = await importBulkData({
           parsedData: parsedData,
           userId,
-          path: "/adminops/joblist",
+          path: "/adminops/joblist/importfile",
         });
         if (bulkimport) {
           toast({
@@ -170,7 +170,7 @@ const ImportFileUpload = ({ userId }: any) => {
             title: "Successfully",
             description: "Importing the Job details successfully.",
           });
-          router.push("/adminops/joblist");
+          router.push("/adminops/joblist/importfile");
         }
       } catch (error) {
         console.log("Error saving data:", error);

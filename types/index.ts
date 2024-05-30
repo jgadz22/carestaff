@@ -32,7 +32,7 @@ export type DeleteUser = {
   path: string;
 };
 
-export type GetAllUsersParams = {
+export type GetAll = {
   query: string;
   limit: number;
   page: number;
@@ -53,4 +53,9 @@ export type RemoveUrlQueryParams = {
 export type SearchParamProps = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export type DeleteJobParams = {
+  jobId: string;
+  path: string;
 };

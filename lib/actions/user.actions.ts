@@ -9,7 +9,7 @@ import { handleError } from "@/lib/utils";
 import {
   CreateUserParams,
   DeleteUser,
-  GetAllUsersParams,
+  GetAll,
   UpdateUser,
   UpdateUserParams,
 } from "@/types/index";
@@ -94,11 +94,7 @@ export async function deleteUser(clerkId: string) {
   }
 }
 
-export async function getAllUsers({
-  query,
-  limit = 10,
-  page,
-}: GetAllUsersParams) {
+export async function getAllUsers({ query, limit = 10, page }: GetAll) {
   try {
     await connectToDatabase();
 
