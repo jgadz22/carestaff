@@ -55,7 +55,26 @@ export type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+//Job Details
 export type DeleteJobParams = {
   jobId: string;
+  path: string;
+};
+
+export type UpdateJobDetailsProps = {
+  params: {
+    id: string;
+  };
+};
+
+export type CreateJobParams = {
+  jobDetails: any;
+  userId: string;
+  path: string;
+};
+
+export type UpdateJobParams = {
+  userId: string;
+  jobDetails: any;
   path: string;
 };

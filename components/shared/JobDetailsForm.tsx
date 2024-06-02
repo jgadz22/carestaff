@@ -16,19 +16,28 @@ import { Input } from "@/components/ui/input";
 import { jobDetailsSchema } from "@/lib/validator";
 import { jobDetailsDefaultValues } from "@/constant";
 import { Textarea } from "../ui/textarea";
-import { createJobDetails } from "@/lib/actions/jobs.actions";
+import { createJobDetails, updateJobDetails } from "@/lib/actions/jobs.actions";
 import { useRouter } from "next/navigation";
 import { useToast } from "../ui/use-toast";
+import { IJobs } from "@/lib/database/models/jobs.model";
 
 type JobDetailsFormProps = {
   userId: string;
   type: "Create" | "Update";
+  jobDetail?: IJobs;
+  jobDetailId?: string;
 };
 
-const JobDetailsForm = ({ userId, type }: JobDetailsFormProps) => {
+const JobDetailsForm = ({
+  userId,
+  type,
+  jobDetail,
+  jobDetailId,
+}: JobDetailsFormProps) => {
   const { toast } = useToast();
   const router = useRouter();
-  const initialValues = jobDetailsDefaultValues;
+  const initialValues =
+    jobDetail && type === "Update" ? jobDetail : jobDetailsDefaultValues;
 
   const form = useForm<z.infer<typeof jobDetailsSchema>>({
     resolver: zodResolver(jobDetailsSchema),
@@ -38,15 +47,56 @@ const JobDetailsForm = ({ userId, type }: JobDetailsFormProps) => {
   async function onSubmit(values: z.infer<typeof jobDetailsSchema>) {
     const jobDetailsValue = values;
 
-    if (type === "Create") {
+    if (type === "Update") {
+      if (!userId) {
+        router.back();
+        return;
+      }
+
       try {
-        const newJob = await createJobDetails({
-          jobDetails: jobDetailsValue,
+        const updateJob = await updateJobDetails({
+          jobDetails: {
+            ...jobDetailsValue,
+            _id: jobDetailId,
+            createdBy: userId,
+          },
           userId,
           path: "/adminops/joblist",
         });
 
-        if (newJob) {
+        if (updateJob) {
+          form.reset();
+          toast({
+            variant: "success",
+            title: "Successfully",
+            description: "Job details successfully updated.",
+          });
+          router.push(`/adminops/joblist`);
+        }
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed saving the Job details.",
+        });
+        console.log(error);
+      }
+    }
+
+    if (type === "Create") {
+      if (!userId) {
+        router.back();
+        return;
+      }
+
+      try {
+        const updateJob = await createJobDetails({
+          jobDetails: jobDetailsValue,
+          userId,
+          path: "/adminops/joblist/addjob",
+        });
+
+        if (updateJob) {
           form.reset();
           toast({
             variant: "success",
@@ -241,7 +291,7 @@ const JobDetailsForm = ({ userId, type }: JobDetailsFormProps) => {
               <FormItem className="w-full">
                 <FormControl>
                   <Input
-                    placeholder="Job Type"
+                    placeholder="Job Title"
                     {...field}
                     className="input-field"
                   />

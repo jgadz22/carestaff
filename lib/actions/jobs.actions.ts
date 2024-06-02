@@ -5,7 +5,12 @@ import { connectToDatabase } from "../database";
 import Jobs from "../database/models/jobs.model";
 import { handleError } from "../utils";
 import User from "../database/models/user.model";
-import { DeleteJobParams, GetAll } from "@/types";
+import {
+  CreateJobParams,
+  DeleteJobParams,
+  GetAll,
+  UpdateJobParams,
+} from "@/types";
 
 const populate = (query: any) => {
   return query.populate({
@@ -43,11 +48,7 @@ export async function createJobDetails({
   jobDetails,
   userId,
   path,
-}: {
-  jobDetails: any;
-  userId: string;
-  path: string;
-}) {
+}: CreateJobParams) {
   try {
     await connectToDatabase();
 
@@ -120,6 +121,32 @@ export async function deleteJob({ jobId, path }: DeleteJobParams) {
 
     const deletedjob = await Jobs.findByIdAndDelete(jobId);
     if (deletedjob) revalidatePath(path);
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+export async function updateJobDetails({
+  userId,
+  jobDetails,
+  path,
+}: UpdateJobParams) {
+  try {
+    await connectToDatabase();
+
+    const jobToUpdate = await Jobs.findById(jobDetails._id);
+    if (!jobToUpdate || !userId) {
+      throw new Error("Unauthorized or Job not found");
+    }
+
+    const updatedMyid = await Jobs.findByIdAndUpdate(
+      jobDetails._id,
+      { ...jobDetails },
+      { new: true }
+    );
+    revalidatePath(path);
+
+    return JSON.parse(JSON.stringify(updatedMyid));
   } catch (error) {
     handleError(error);
   }

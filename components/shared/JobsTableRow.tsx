@@ -12,9 +12,11 @@ const JobsTableRow = ({ job }: { job: any }) => {
             <Trash2 className="text-red-800 cursor-pointer hover:text-red-500" />
           </button>
         </Link>
-        <button className="p-2">
-          <SquarePen className="text-violet-800 cursor-pointer hover:text-violet-500" />
-        </button>
+        <Link href={`/adminops/joblist/${job._id}/update`}>
+          <button className="p-2">
+            <SquarePen className="text-violet-800 cursor-pointer hover:text-violet-500" />
+          </button>
+        </Link>
       </TableCell>
       <TableCell className="text-center">{job.jobNumber}</TableCell>
       <TableCell className="text-center">{job.jobType}</TableCell>
