@@ -9,6 +9,7 @@ import {
   DeleteEmployerParams,
   UpdateEmployerParams,
 } from "@/types";
+import User from "../database/models/user.model";
 
 const populate = (query: any) => {
   return query.populate({
@@ -24,7 +25,7 @@ export async function createEmployerInfo({
   try {
     await connectToDatabase();
 
-    const creator = await Employer.findById(userId);
+    const creator = await User.findById(userId);
 
     if (!creator) {
       throw new Error("Creator not found");
@@ -64,8 +65,8 @@ export async function updateEmployerInfo({
   try {
     await connectToDatabase();
 
-    const employerToUpdate = await Employer.findById(employerInfo._id);
-    if (!employerToUpdate) {
+    const creator = await User.findById(userId);
+    if (!creator) {
       throw new Error("Unauthorized or myid not found");
     }
 
