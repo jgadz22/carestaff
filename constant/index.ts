@@ -105,3 +105,12 @@ export const jobDetailsDefaultValues = {
   secondMemo: "",
   webMediaDisclosureOrNonDisclosure: "",
 };
+
+export const employerDefaultValues = {
+  photo: "",
+  companyName: "",
+  companyLocation: "",
+  email: "",
+  contactNumber: "",
+  companyOverview: "",
+};

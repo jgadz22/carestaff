@@ -78,3 +78,27 @@ export type UpdateJobParams = {
   jobDetails: any;
   path: string;
 };
+
+// Employer
+export type UpdateEmployerDetailsProps = {
+  params: {
+    id: string;
+  };
+};
+
+export type CreateEmployerParams = {
+  employerInfo: any;
+  userId: string;
+  path: string;
+};
+
+export type DeleteEmployerParams = {
+  employerId: string;
+  path: string;
+};
+
+export type UpdateEmployerParams = {
+  userId: string;
+  employerInfo: any;
+  path: string;
+};
