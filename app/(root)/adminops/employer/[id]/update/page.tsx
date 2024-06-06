@@ -1,12 +1,18 @@
 import EmployerForm from "@/components/shared/EmployerForm";
 import { Separator } from "@/components/ui/separator";
+import { getEmployerById } from "@/lib/actions/employers.action";
+import { UpdateEmployerDetailsProps } from "@/types";
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
 
-const UpdateEmployer = () => {
+const UpdateEmployer = async ({
+  params: { id },
+}: UpdateEmployerDetailsProps) => {
   const { sessionClaims } = auth();
 
   const userId = sessionClaims?.userId as any;
+
+  const employerInfo = await getEmployerById(id);
   return (
     <>
       <section>
@@ -17,7 +23,12 @@ const UpdateEmployer = () => {
         </div>
       </section>
       <div className="flex-center gap-3 relative w-full px-5">
-        <EmployerForm userId={userId} type="Update" />
+        <EmployerForm
+          userId={userId}
+          type="Update"
+          employerInfo={employerInfo}
+          employerInfoId={employerInfo._id}
+        />
       </div>
     </>
   );

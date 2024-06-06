@@ -84,17 +84,17 @@ export async function getAllJobs({ query, limit = 10, page }: GetAll) {
     const skipAmount = (Number(page) - 1) * limit;
 
     const sortCondition = { createdAt: "desc", _id: "asc" } as any;
-    const usersQuery = Jobs.find(conditions)
+    const jobsQuery = Jobs.find(conditions)
       .sort(sortCondition)
       .skip(skipAmount)
       .limit(limit);
 
-    const users = await populate(usersQuery);
-    const usersCount = await Jobs.countDocuments(conditions);
+    const jobs = await populate(jobsQuery);
+    const jobsCount = await Jobs.countDocuments(conditions);
 
     return {
-      data: JSON.parse(JSON.stringify(users)),
-      totalPages: Math.ceil(usersCount / limit),
+      data: JSON.parse(JSON.stringify(jobs)),
+      totalPages: Math.ceil(jobsCount / limit),
     };
   } catch (error) {
     handleError(error);

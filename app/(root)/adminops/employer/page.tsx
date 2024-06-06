@@ -1,22 +1,24 @@
+import EmployerTable from "@/components/shared/EmployerTable";
 import Pagination from "@/components/shared/Pagination";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { getAllEmployer } from "@/lib/actions/employers.action";
 import { SearchParamProps } from "@/types";
 import Link from "next/link";
 import React from "react";
 
-const EmployerPage = ({ searchParams }: SearchParamProps) => {
+const EmployerPage = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams?.query as string) || "";
 
-  // const jobsData = await getAllJobs({
-  //   query: searchText,
-  //   page,
-  //   limit: 1,
-  // });
+  const employerData = await getAllEmployer({
+    query: searchText,
+    page,
+    limit: 1,
+  });
 
-  // const totalPages = jobsData?.totalPages ? jobsData?.totalPages : 0;
+  const totalPages = employerData?.totalPages ? employerData?.totalPages : 0;
 
   return (
     <div className="wrapper">
@@ -33,10 +35,10 @@ const EmployerPage = ({ searchParams }: SearchParamProps) => {
       </div>
 
       <div className="flex-center py-5 gap-5 flex-col">
-        {/* <JobsTable jobsData={jobsData?.data} /> */}
-        {/* {totalPages > 1 && (
+        <EmployerTable employerData={employerData?.data} />
+        {totalPages > 1 && (
           <Pagination urlParamName="page" page={page} totalPages={totalPages} />
-        )} */}
+        )}
       </div>
     </div>
   );
