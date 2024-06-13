@@ -21,7 +21,7 @@ const StaffPage = async ({ searchParams }: SearchParamProps) => {
   const usersData = await getAllUsers({
     query: searchText,
     page,
-    limit: 1,
+    limit: 10,
   });
 
   const totalPages = usersData?.totalPages ? usersData?.totalPages : 0;

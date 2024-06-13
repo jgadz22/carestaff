@@ -35,12 +35,12 @@ export const userHeaderLinks = [
     route: "/",
   },
   {
-    label: "Jobs List",
-    route: "/jobslist",
+    label: "List of Jobs",
+    route: "/listofjobs",
   },
   {
     label: "About Us",
-    route: "/about",
+    route: "/aboutus",
   },
   {
     label: "FAQS",
@@ -48,7 +48,7 @@ export const userHeaderLinks = [
   },
   {
     label: "Contact Us",
-    route: "/contact",
+    route: "/contactus",
   },
 ];
 
@@ -114,3 +114,31 @@ export const employerDefaultValues = {
   contactNumber: "",
   companyOverview: "",
 };
+
+export const carouselSlide = [
+  {
+    key: "1",
+    contentFirst:
+      "Are you seeking  for job opportunities or qualifications in caregiving?",
+    contentSecond: "We've got you covered!",
+    buttonContent: "See List of Jobs",
+    route: "/listofjobs",
+    image: "/assets/images/banner-first.png",
+  },
+  {
+    key: "2",
+    contentFirst: "",
+    contentSecond: "",
+    buttonContent: "For Employers",
+    route: "/employers",
+    image: "/assets/images/banner-second.jpg",
+  },
+  {
+    key: "3",
+    contentFirst: "",
+    contentSecond: "",
+    buttonContent: "See List of Offices",
+    route: "/listofjobs",
+    image: "assets/images/banner-third.jpg",
+  },
+];

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Separator } from "../ui/separator";
@@ -16,13 +16,29 @@ const UserHeader = () => {
     setNav(!nav);
   };
 
+  const [shadow, setShadow] = useState(false);
+
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
+
   return (
-    <header className="w-full border-b bg-[#E0F3F3] z-20">
+    <header
+      className={
+        shadow
+          ? "fixed w-full border-b bg-[#53D1D1] z-[100]"
+          : "w-full border-b bg-[#53D1D1]/50 z-[100]"
+      }
+    >
       <div className="wrapper flex-between">
-        <Link
-          href="/adminops"
-          className="w-40 lg:w-72 transition-all duration-500"
-        >
+        <Link href="/" className="w-40 lg:w-72 transition-all duration-500">
           <Image
             src="/assets/images/care-staff-logo.jpg"
             width={300}
@@ -71,7 +87,7 @@ const UserHeader = () => {
             >
               <div>
                 <div className="flex w-full items-center justify-between mb-5 ">
-                  <Link href="/adminops" className="w-36">
+                  <Link href="/" className="w-36">
                     <Image
                       src="/assets/images/care-staff-logo.jpg"
                       width={128}

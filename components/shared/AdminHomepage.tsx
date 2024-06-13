@@ -1,7 +1,6 @@
 "use client";
 
 import { adminHeaderLinks, staffHeaderLinks } from "@/constant";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import BoxButton from "./BoxButton";

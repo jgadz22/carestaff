@@ -28,7 +28,7 @@ const EmployerDelete = async ({ params: { id } }: DeleteEmployerProps) => {
         </p>
         <div className="flex-center flex-col md:flex-row gap-2 md:gap-4  w-full md:max-w-xl">
           <Button size="lg" className="button w-full">
-            <Link href="/adminops/joblist">Cancel</Link>
+            <Link href="/adminops/employer">Cancel</Link>
           </Button>
           <EmployerDeleteButton employer={employer} userId={userId} />
         </div>

@@ -22,7 +22,7 @@ const UpdateEmployer = async ({
           <Separator className="h-2 my-5 bg-[#53D1D1]" />
         </div>
       </section>
-      <div className="flex-center gap-3 relative w-full px-5">
+      <div className="flex-center gap-3 relative w-full px-5 mb-5">
         <EmployerForm
           userId={userId}
           type="Update"

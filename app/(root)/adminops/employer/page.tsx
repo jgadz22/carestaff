@@ -15,7 +15,7 @@ const EmployerPage = async ({ searchParams }: SearchParamProps) => {
   const employerData = await getAllEmployer({
     query: searchText,
     page,
-    limit: 1,
+    limit: 10,
   });
 
   const totalPages = employerData?.totalPages ? employerData?.totalPages : 0;

@@ -15,7 +15,7 @@ const JobListPage = async ({ searchParams }: SearchParamProps) => {
   const jobsData = await getAllJobs({
     query: searchText,
     page,
-    limit: 1,
+    limit: 10,
   });
 
   const totalPages = jobsData?.totalPages ? jobsData?.totalPages : 0;

@@ -28,6 +28,7 @@ import {
   createEmployerInfo,
   updateEmployerInfo,
 } from "@/lib/actions/employers.action";
+import { Loader2 } from "lucide-react";
 
 type EmployerFormProps = {
   userId: string;
@@ -258,9 +259,14 @@ const EmployerForm = ({
           disabled={form.formState.isSubmitting}
           className="button col-span-2 w-full"
         >
-          {form.formState.isSubmitting
-            ? "Submitting..."
-            : `${type} Employer Details`}
+          {form.formState.isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <p>Submitting...</p>
+            </>
+          ) : (
+            `${type} Job Details`
+          )}
         </Button>
       </form>
     </Form>

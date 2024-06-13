@@ -16,7 +16,7 @@ const CreateEmployer = () => {
           <Separator className="h-2 my-5 bg-[#53D1D1]" />
         </div>
       </section>
-      <div className="wrapper flex-center gap-3 relative w-full px-5">
+      <div className="wrapper flex-center gap-3 relative w-full px-5 mb-5">
         <EmployerForm userId={userId} type="Create" />
       </div>
     </>
