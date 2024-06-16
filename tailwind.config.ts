@@ -74,6 +74,7 @@ module.exports = withUt({
         "hero-img": "url('/assets/images/hero.png')",
         "login-img": "url('/assets/images/login_image.jpg')",
         "who-we-are-img": "url('/assets/images/who_we_are.png')",
+        "step-border-img": "url('/assets/images/step_border.png')",
       },
       borderRadius: {
         lg: "var(--radius)",

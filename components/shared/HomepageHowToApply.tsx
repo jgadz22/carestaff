@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import HowToApplyCollection from "./HowToApplyCollection";
 
 const HomepageHowToApply = () => {
   return (
@@ -17,7 +18,9 @@ const HomepageHowToApply = () => {
             <p className="h3-bold">How to apply?</p>
           </div>
         </div>
-        <div className="flex-center h-[200px]">Cards</div>
+        <div className="flex-center">
+          <HowToApplyCollection />
+        </div>
       </div>
     </>
   );

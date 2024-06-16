@@ -45,7 +45,7 @@ const HomepageWhoWeAre = () => {
           </div>
         </div>
         <div className="w-full md:w-[50%] flex-center">
-          <div className="bg-who-we-are-img bg-cover w-[774px] h-[516px] rounded-xl bg-center"></div>
+          <div className="bg-who-we-are-img bg-cover w-[774px] h-[516px] rounded-3xl bg-center"></div>
         </div>
       </div>
     </>

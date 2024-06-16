@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import {
   Carousel,
@@ -14,7 +16,7 @@ import { ArrowRight } from "lucide-react";
 
 const HompageCarousel = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
   return (

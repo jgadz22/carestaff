@@ -142,3 +142,27 @@ export const carouselSlide = [
     image: "assets/images/banner-third.jpg",
   },
 ];
+
+export const howToApply = [
+  {
+    key: "1",
+    htanumber: "01",
+    content: "Go to list of jobs",
+  },
+  {
+    key: "2",
+    htanumber: "02",
+    content: "Search for the Job that you desire to apply for then click",
+  },
+  {
+    key: "3",
+    htanumber: "03",
+    content:
+      "Read the Job Details carefully, if you wish to apply fill out the necessary fields then press “submit”",
+  },
+  {
+    key: "4",
+    htanumber: "04",
+    content: "Wait for an email confirmation",
+  },
+];
