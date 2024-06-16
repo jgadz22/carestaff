@@ -4,7 +4,7 @@ import React from "react";
 
 const Card = ({ recentJob, employerData }: any) => {
   return (
-    <div className="flex flex-col gap-2 max-w-[400px] p-5 shadow-lg shadow-slate-700 bg-white rounded-2xl">
+    <div className="flex max-w-[25rem] border border-slate-300 flex-col gap-2 p-5 shadow-lg shadow-slate-700 bg-white rounded-2xl">
       <div className="flex w-full h-[70px] mb-2">
         {employerData && employerData.length > 0 ? (
           employerData.map((employer: any) => {

@@ -3,6 +3,8 @@ import HomepageRecentJob from "@/components/shared/HomepageRecentJob";
 import HomepageWhoWeAre from "@/components/shared/HomepageWhoWeAre";
 import HompageCarousel from "@/components/shared/HompageCarousel";
 import HomepageClientSideProvider from "./HomepageClientSideProvider";
+import HomepageSafetyPoints from "./HomepageSafetyPoints";
+import HomepageVideo from "./HomepageVideo";
 
 const Homepage = ({ jobsData }: any) => {
   return (
@@ -23,10 +25,10 @@ const Homepage = ({ jobsData }: any) => {
               <HomepageHowToApply />
             </section>
             <section id="test5" className="flex-1">
-              Safety Points
+              <HomepageSafetyPoints />
             </section>
             <section id="test6" className="flex-1">
-              Video
+              <HomepageVideo />
             </section>
           </div>
         </div>
