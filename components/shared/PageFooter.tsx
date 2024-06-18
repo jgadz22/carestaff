@@ -12,7 +12,6 @@ const PageFooter = () => {
 
   useEffect(() => {
     setIsAdminPath(pathname.includes("adminops"));
-    console.log("pathname: ", isAdminPath);
   }, [pathname]);
   return <>{isAdminPath ? <Footer /> : <UserFooter />}</>;
 };

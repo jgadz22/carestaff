@@ -12,7 +12,6 @@ const NavBarHeader = ({ userPosition }: any) => {
 
   useEffect(() => {
     setIsAdminPath(pathname.includes("adminops"));
-    console.log("pathname: ", isAdminPath);
   }, [pathname]);
 
   return (

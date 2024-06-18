@@ -1,3 +1,4 @@
+import HomepageClientSideProvider from "@/components/shared/HomepageClientSideProvider";
 import NavBarHeader from "@/components/shared/NavBarHeader";
 import PageFooter from "@/components/shared/PageFooter";
 import TranslateWithGoogle from "@/components/shared/TranslateWithGoogle";
@@ -16,11 +17,13 @@ export default async function RootLayout({
   const userPosition = user ? user.position : "";
   return (
     <div className="flex h-screen flex-col">
-      <NavBarHeader userPosition={userPosition} children={children} />
-      <main className="flex-1">{children}</main>
-      <PageFooter />
-      <Toaster />
-      <TranslateWithGoogle />
+      <HomepageClientSideProvider>
+        <NavBarHeader userPosition={userPosition} children={children} />
+        <main className="flex-1">{children}</main>
+        <PageFooter />
+        <Toaster />
+        <TranslateWithGoogle />
+      </HomepageClientSideProvider>
     </div>
   );
 }

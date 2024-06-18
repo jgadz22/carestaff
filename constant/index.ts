@@ -199,3 +199,82 @@ export const safetyPoints = [
     imgUrl: "/assets/images/heart-four.png",
   },
 ];
+
+export const homeLinks = [
+  {
+    key: "1",
+    section: "Who we are",
+    sectionLink: "/#whoweare",
+  },
+  {
+    key: "2",
+    section: "Recent Jobs",
+    sectionLink: "/#recentjob",
+  },
+  {
+    key: "3",
+    section: "How to Apply",
+    sectionLink: "/#howtoapply",
+  },
+  {
+    key: "4",
+    section: "Safety Points",
+    sectionLink: "/#safetypoints",
+  },
+  {
+    key: "5",
+    section: "Video Promotion",
+    sectionLink: "/#videopromotion",
+  },
+];
+
+export const aboutUsLinks = [
+  {
+    key: "1",
+    section: "Company Profile",
+    sectionLink: "/aboutus/#companyprofile",
+  },
+  {
+    key: "2",
+    section: "List of Offices",
+    sectionLink: "/aboutus/#listofoffices",
+  },
+  {
+    key: "3",
+    section: "President’s Greeting",
+    sectionLink: "/aboutus/#presidentgreeting",
+  },
+  {
+    key: "4",
+    section: "Provision of Human Resources",
+    sectionLink: "/aboutus/#provisionofhumanresources",
+  },
+  {
+    key: "5",
+    section: "Establishment of Qualification Courses",
+    sectionLink: "/aboutus/#establishmentofqualificationcourses",
+  },
+  {
+    key: "6",
+    section: "Support for Re-employment",
+    sectionLink: "/aboutus/#supportforreemployment",
+  },
+];
+
+export const contactUsLinks = [
+  {
+    key: "1",
+    section: "Inquiries",
+    sectionLink: "/contactus/#inquiries",
+  },
+  {
+    key: "2",
+    section: "Recent Jobs",
+    sectionLink: "/contactus/#recentjob",
+  },
+  {
+    key: "3",
+    section: "For  Recruiters",
+    sectionLink: "/contactus/#forrecruiters",
+  },
+];

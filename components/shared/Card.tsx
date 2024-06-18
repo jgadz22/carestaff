@@ -41,7 +41,7 @@ const Card = ({ recentJob, employerData }: any) => {
       <div className="flex p-regular-14">{recentJob.industry}</div>
       <div className="flex p-regular-14">{recentJob.workLocation}</div>
       <div className="w-full text-[#0099ff] p-bold-16">
-        <Link href="/listofjobs">View</Link>
+        <Link href="/">View</Link>
       </div>
     </div>
   );
