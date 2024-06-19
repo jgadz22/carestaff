@@ -16,14 +16,14 @@ export default async function RootLayout({
   const user = userId ? await getUserById(userId) : "";
   const userPosition = user ? user.position : "";
   return (
-    <div className="flex h-screen flex-col">
-      <HomepageClientSideProvider>
+    <HomepageClientSideProvider>
+      <div className="flex h-screen flex-col">
         <NavBarHeader userPosition={userPosition} children={children} />
         <main className="flex-1">{children}</main>
         <PageFooter />
         <Toaster />
         <TranslateWithGoogle />
-      </HomepageClientSideProvider>
-    </div>
+      </div>
+    </HomepageClientSideProvider>
   );
 }

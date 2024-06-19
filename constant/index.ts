@@ -278,3 +278,170 @@ export const contactUsLinks = [
     sectionLink: "/contactus/#forrecruiters",
   },
 ];
+
+export const aboutUsTableOne = [
+  {
+    key: "1",
+    left: "Operating Company",
+    right: "Hiro Career Staff Inc.",
+  },
+  {
+    key: "2",
+    left: "Head office location",
+    right:
+      "Iwate Prefecture Morioka City Kaiunbashi Dori 3-41 Da Vinci Building Access MAP",
+  },
+  {
+    key: "3",
+    left: "Establishment",
+    right: "July 5, Heisei 8",
+  },
+  {
+    key: "4",
+    left: "Representative Director",
+    right: "Hiroyuki Usuzawa",
+  },
+  {
+    key: "5",
+    left: "Paid-in Capital",
+    right: "95,000,000 yen",
+  },
+  {
+    key: "6",
+    left: "Major shareholders and shareholding ratios",
+    right: "HIRO Global Holdings Co., Ltd. 100%",
+  },
+  {
+    key: "7",
+    left: "Licensing",
+    right: "Employment Placement Business License No. 03-ユ-300021",
+  },
+  {
+    key: "8",
+    left: "Worker Dispatching Business License Number",
+    right: "Faction 03-010033",
+  },
+  {
+    key: "9",
+    left: "Description of Business",
+    right:
+      "Medical and nursing care industry specialty, provision of recruitment and temporary staffing services, certification for acquiring training qualifications for first-time caregivers",
+  },
+  {
+    key: "10",
+    left: "Holidays",
+    right:
+      "Sundays, national holidays, 2.3.4 Saturdays, Golden Week, summer, year-end and New Year holidays",
+  },
+  {
+    key: "11",
+    left: "Business hours",
+    right: "9 a.m. ~ 6 p.m.",
+  },
+  {
+    key: "12",
+    left: "Main Banks",
+    right: "Mizuho Bank Michinoku Bank Kita Japan Bank 77 Bank",
+  },
+  {
+    key: "13",
+    left: "Corporate Site",
+    right: "Hiro Career Staff Inc.",
+  },
+  {
+    key: "14",
+    left: "List of Group Companies",
+    right:
+      "HIRO Global Holdings, Inc., Human Skill Academy, Inc., KOHO Media Inc.",
+  },
+  {
+    key: "15",
+    left: "Collaborating Organizations",
+    right:
+      "Iwate Prefecture Human Resource, Skills Development Cooperative Association, HIRO GLOBAL MANPOWER inc",
+  },
+];
+
+export const aboutUsTableSecond = [
+  {
+    key: "1",
+    office: "Morioka Office (Headquarters)",
+    address:
+      "Da Vinci Bldg., 3-41 Kaiunbashi-dori, Morioka-shi, Iwate Prefecture",
+    telNumber: "TEL: 019-623-0707, FAX: 019-625-7800",
+    email: "",
+  },
+  {
+    key: "2",
+    office: "Kitakami Training Center",
+    address: "2-9-25 Boulevard, Kitakami-shi, Iwate",
+    telNumber: "TEL: 0197-72-6474, FAX: 0197-72-6475",
+    email: "",
+  },
+  {
+    key: "3",
+    office: "Hakodate Office",
+    address:
+      "Room 101, Rokugo Goryokaku Building, 31-8 Goryokaku-cho, Hakodate-shi, Hokkaido",
+    telNumber: "TEL: 0138-83-5846, FAX: 0138-83-5848",
+    email: "",
+  },
+  {
+    key: "4",
+    office: "Aomori Office",
+    address:
+      "Ascent Building 2F, 1-8-8 Shinmachi, Aomori City,Aomori Prefecture",
+    telNumber: "TEL: 017-735-2015, FAX: 017-735-2016",
+    email: "",
+  },
+  {
+    key: "5",
+    office: "Akita Office",
+    address: "Murakami Building 1F, 1-3 Tsukiji, Minami-dori, Akita-shi, Akita",
+    telNumber: "TEL: 018-874-7041, FAX: 018-874-7241",
+    email: "",
+  },
+  {
+    key: "6",
+    office: "Sendai Office",
+    address: "203-7 Nakake-cho, Miyagino-ku, Sendai-shi, Miyagi Prefecture",
+    telNumber: "TEL: 022-291-0222, FAX: 022-257-8202",
+    email: "",
+  },
+  {
+    key: "7",
+    office: "Yamagata Office",
+    address: "3-1-23 Kiyozumi-cho, Yamagata-shi, Yamagata",
+    telNumber: "TEL: 023-666-3600, FAX: 023-666-3601",
+    email: "",
+  },
+  {
+    key: "8",
+    office: "Shonai Workspace",
+    address: "1-7-9 Nakamachi, Sakata-shi, Yamagata",
+    telNumber: "TEL: 0234-25-4766, FAX: 0234-25-4767",
+    email: "",
+  },
+  {
+    key: "9",
+    office: "Utsunomiya Office",
+    address: "3-15-2 Koshido, Utsunomiya-shi, Tochigi ",
+    telNumber: "TEL: 028-680-7353, FAX: 028-680-7307",
+    email: "",
+  },
+  {
+    key: "10",
+    office: "Koriyama Job Center",
+    address: "102 Kuwano Building, 2-5-1 Kuwano-cho, Koriyama-shi, Fukushima",
+    telNumber: "TEL: 024-953-3801, FAX: 024-953-4500",
+    email: "",
+  },
+  {
+    key: "11",
+    office: "Nagano Job Center",
+    address:
+      "101 Estación Nagano Building, 1972 Minamiishido-cho, Nagano-shi, Nagano",
+    telNumber: "TEL: 026-217-5986, FAX: 026-217-5987",
+    email: "",
+  },
+];

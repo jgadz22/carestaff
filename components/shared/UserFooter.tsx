@@ -1,5 +1,5 @@
 import { aboutUsLinks, homeLinks } from "@/constant";
-import { Facebook, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -24,7 +24,7 @@ const UserFooter = () => {
                   return (
                     <li
                       key={homelink.key}
-                      className="flex items-center justify-center md:justify-start p-regular-16"
+                      className="flex items-center justify-center md:justify-start p-regular-14"
                     >
                       <Link href={homelink.sectionLink}>
                         <p>{homelink.section}</p>
@@ -56,7 +56,7 @@ const UserFooter = () => {
                   return (
                     <li
                       key={aboutuslink.key}
-                      className="flex items-center justify-center md:justify-start p-regular-16"
+                      className="flex items-center justify-center md:justify-start p-regular-14"
                     >
                       <Link href={aboutuslink.sectionLink}>
                         <p>{aboutuslink.section}</p>
@@ -91,7 +91,7 @@ const UserFooter = () => {
               </p>
             </div>
             <div className="">
-              <p className="flex text-center items-center justify-center md:justify-start p-regular-14 text-[#e27107] gap-2 lg:gap-1">
+              <p className="flex text-center items-center justify-center md:justify-start p-regular-14 text-[#e27107] gap-2 lg:gap-1 mb-3">
                 <span className="text-[#53d1d1]">
                   <Mail />
                 </span>{" "}
@@ -99,7 +99,7 @@ const UserFooter = () => {
               </p>
             </div>
             <div className="">
-              <p className="flex text-center items-center justify-center md:justify-start p-regular-14 text-[#e27107] gap-2 lg:gap-1">
+              <p className="flex text-center items-center justify-center md:justify-start p-regular-14 text-[#e27107] gap-2 lg:gap-1 mb-3">
                 <span className="text-[#53d1d1]">
                   <Phone />
                 </span>
