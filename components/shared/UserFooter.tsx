@@ -82,12 +82,12 @@ const UserFooter = () => {
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
               <p className="flex text-center items-center justify-center md:justify-start p-semibold-18 text-[#e27107] mb-2">
-                <span className="text-[#53d1d1] h5-bold">{">"}</span>Site Terms
-                of Use
+                <span className="text-[#53d1d1] h5-bold">{">"}</span>{" "}
+                <Link href="/siteterms">Site Terms of Use</Link>
               </p>
               <p className="flex text-center items-center justify-center md:justify-start p-semibold-18 text-[#e27107]">
-                <span className="text-[#53d1d1] h5-bold">{">"}</span>Privacy
-                Policy
+                <span className="text-[#53d1d1] h5-bold">{">"}</span>
+                <Link href="/privacypolicy">Privacy Policy</Link>
               </p>
             </div>
             <div className="">

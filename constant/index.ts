@@ -138,7 +138,7 @@ export const carouselSlide = [
     contentFirst: "",
     contentSecond: "",
     buttonContent: "See List of Offices",
-    route: "/listofjobs",
+    route: "/aboutus/#listofoffices",
     image: "assets/images/banner-third.jpg",
   },
 ];
