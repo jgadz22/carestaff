@@ -138,7 +138,7 @@ export const carouselSlide = [
     contentFirst: "",
     contentSecond: "",
     buttonContent: "See List of Offices",
-    route: "/aboutus/#listofoffices",
+    route: "/aboutus#listofoffices",
     image: "assets/images/banner-third.jpg",
   },
 ];
@@ -443,5 +443,364 @@ export const aboutUsTableSecond = [
       "101 Estación Nagano Building, 1972 Minamiishido-cho, Nagano-shi, Nagano",
     telNumber: "TEL: 026-217-5986, FAX: 026-217-5987",
     email: "",
+  },
+];
+
+export const faqsLinks = [
+  {
+    key: "1",
+    section: "1. Use of the Website",
+    sectionLink: "/faqs/#useofwebsite",
+  },
+  {
+    key: "2",
+    section: "2. About job application",
+    sectionLink: "/faqs/#aboutjobapplication",
+  },
+  {
+    key: "3",
+    section: "3. .Employee benefits, social insurance, etc.",
+    sectionLink: "/faqs/#employeebenefits",
+  },
+  {
+    key: "4",
+    section: "4. Those who have started temporary employment",
+    sectionLink: "/faqs/#temporaryemployment",
+  },
+  {
+    key: "5",
+    section: "5. People who are leaving or looking for a job",
+    sectionLink: "/faqs/#leavingdorjobhunters",
+  },
+];
+
+export const faqsOne = [
+  {
+    key: "1",
+    question: "I would like to check the jobs I have viewed before.",
+    answer:
+      "Your browsing history will automatically appear on the job search page. Please note that if you use a different device than the one you used before, it will not be displayed if you clear your device's history.",
+  },
+  {
+    key: "2",
+    question: "I forgot my Inquiry No. (Job ID). What should I do?",
+    answer:
+      "Please check the email you received automatically when you apply or make an inquiry, as it will contain your inquiry number.",
+  },
+  {
+    key: "3",
+    question:
+      "I have not received an automatic e-mail., social insurance, etc.",
+    answer:
+      "Please check the settings of various devices to make sure that you do not have any exclusion settings for computer mail, and make sure that you do not exclude the @care-staff.co.jp domain",
+  },
+  {
+    key: "4",
+    question: "I applied and registered, but I haven't been contacted.",
+    answer:
+      "If you have not heard from us within 3 business days, please contact us at our toll-free number: 0120070775. In some cases, there may be an error in entering the contact phone number, etc., and we may not be able to contact you.",
+  },
+  {
+    key: "5",
+    question: "Questions about the website contents",
+    answer:
+      "Morioka Head Office (WEB Management Office)　 TEL: 0120-070-775　 Email: info@care-staff.co.jp",
+  },
+];
+
+export const faqsTwo = [
+  {
+    key: "1",
+    question: "I apply for multiple jobs?",
+    answer:
+      "It is possible to apply for multiple jobs, but the system does not allow for bulk applications. If there are multiple jobs you are interested in, you can also register instead of applying.",
+  },
+  {
+    key: "2",
+    question: "What browser environment is required to use this website?",
+    answer:
+      "You can apply as many times as you like. Since we have a history of previous applications, you can contact us instead of applying again . If you have already registered, you can directly ask the coordinator in charge to introduce you to a job.",
+  },
+  {
+    key: "3",
+    question: "What browser environment is required to use this website?",
+    answer:
+      "Please send an email to iwate@care-staff.co.jp with your name, address, and phone number. After the deletion is complete, the management office will contact you by email to notify you of the completion.",
+  },
+];
+
+export const faqsThree = [
+  {
+    key: "1",
+    question: "I want to know the requirements for joining social insurance.",
+    answer:
+      "Those who work 6 hours or more per day and 17 days or more per month are eligible to enroll in social insurance.",
+  },
+  {
+    key: "2",
+    question: "Can I work within the scope of my family's support?",
+    answer:
+      "Yes, that is possible. We will discuss this with you based on your family situation and working conditions.",
+  },
+  {
+    key: "3",
+    question: "Who can use the qualification acquisition subsidy system?",
+    answer:
+      "This system is available to those who have worked at Hiro Career Staff for more than 6 months and who work for more than 140 hours. This system is also available to those who wish to work at Hiro Career Staff for more than 6 months after obtaining qualifications. Please contact us by toll-free number for information on applicable qualifications and required documents.",
+  },
+  {
+    key: "4",
+    question: "Are paid holidays provided?",
+    answer:
+      "Yes, that is possible. Those who have worked 80% or more of the scheduled working days and have been working for more than six months after joining the company will be granted the statutory number of days off.",
+  },
+  {
+    key: "5",
+    question: "Where should I apply for paid leave?",
+    answer:
+      "After getting approval from the dispatched employment facility, please submit the application form to the Hiro Career Staff Sales Office Manager.",
+  },
+  {
+    key: "6",
+    question: "Is there any assistance for vaccination costs?",
+    answer:
+      "Half-price subsidies are available for influenza vaccinations only, and are available to temporary staff with one year or more of continuous employment.",
+  },
+  {
+    key: "7",
+    question:
+      "I am enrolled in the National Health Insurance. Do I need to apply for it myself?",
+    answer:
+      "If you lose your National Health Insurance eligibility, you will need to bring your new insurance card and complete the procedure yourself at your city hall or other designated office.",
+  },
+  {
+    key: "8",
+    question: "Will transportation expenses be reimbursed?",
+    answer:
+      "This will be paid separately from your salary in accordance with regulations.",
+  },
+  {
+    key: "9",
+    question: "I don't know my My Number. Who should I contact?",
+    answer:
+      "This will be paid separately from your salary in accordance with regulations.",
+  },
+  {
+    key: "10",
+    question: "I lost my pension book. Who should I contact?",
+    answer:
+      "You can either go to your local pension office yourself or ask a Hiro Career staff member to reissue your card (only for those with social insurance).",
+  },
+  {
+    key: "11",
+    question:
+      " I don't know my employment insurance number. Who should I contact?",
+    answer:
+      "When applying for employment insurance, you can also search your previous employment history, so if you are unsure, please let the Hiro Career staff coordinator know.",
+  },
+];
+
+export const faqsFour = [
+  {
+    key: "1",
+    question:
+      "What documents do I need to start working at Care Staff Service?",
+    answer:
+      "When you sign a contract with Hiro Career Staff, you will be given a list of required documents, so please check them.",
+  },
+  {
+    key: "2",
+    question:
+      "Should I contact the placement facility or the Hiro Career staff regarding lateness, absence, etc.?",
+    answer:
+      "First, contact the placement company. Then, contact the coordinator in charge.",
+  },
+  {
+    key: "3",
+    question: `If the train is delayed and I submit a "Delay Certificate", will I still be paid for that time?`,
+    answer:
+      "Hiro Career Staff's temporary employment services only pay for the hours you work. If there are delays or other issues, we will not be able to pay for those hours.",
+  },
+  {
+    key: "4",
+    question:
+      "If I have something I want to discuss at work, who should I talk to?",
+    answer:
+      "Please first consult with the Hiro Career staff coordinator in charge. The coordinator will then consult with the facility staff",
+  },
+  {
+    key: "5",
+    question:
+      "If the facility where I am currently working does not suit me, can I change it?",
+    answer:
+      "As a general rule, if your dispatch contract has not yet expired, we will introduce you to another facility after the expiration date. Please contact the coordinator in charge in advance to that effect.",
+  },
+  {
+    key: "6",
+    question: "When will I be paid?",
+    answer:
+      "Payment is made at the end of each month and on the 25th of the following month. Daily or weekly payments are not available.",
+  },
+  {
+    key: "7",
+    question:
+      "I haven't received my health insurance card yet, but I have plans to go to the hospital. What should I do?",
+    answer:
+      "We can issue a certificate of health insurance eligibility. (※Please contact the person in charge in advance if necessary.) Please present this to the medical institution when you visit.",
+  },
+  {
+    key: "8",
+    question: "Can I check my pay slip on the website?",
+    answer: "Currently, it is not possible to check this on the website.",
+  },
+  {
+    key: "9",
+    question: "Is there a deadline for submitting time cards?",
+    answer:
+      "Deadline is at the end of each month. Please send your application by the 1st of the following month to the designated fax number or hand it over directly to the coordinator",
+  },
+  {
+    key: "10",
+    question: "Can you do year-end tax adjustments?",
+    answer:
+      "Yes, you can. This applies to those who are employed as of December of each year. If you leave your job at any other time, you will need to file a tax return at your new employer or by yourself.",
+  },
+  {
+    key: "11",
+    question: "Can I get a resident tax deduction?",
+    answer: "Is possible.",
+  },
+  {
+    key: "12",
+    question: "I would like to have a tax withholding slip issued.",
+    answer:
+      "For those who retired this year, the documents will be sent out around the end of October each year, and for those who are still employed, the documents will be sent out around January or February of the following year after the year-end adjustment.",
+  },
+  {
+    key: "13",
+    question: "I am pregnant. What will happen to my temporary employment?",
+    answer:
+      "Please consult with your Hiro Career staff coordinator first. We will make arrangements with the placement company, taking into consideration your physical condition, etc.",
+  },
+  {
+    key: "14",
+    question:
+      "I am having difficulty working due to morning sickness. What should I do?",
+    answer:
+      "Please consult with the coordinator in charge of the Hiro Career Staff first. In some cases, you may be asked to issue a document from a medical institution.",
+  },
+  {
+    key: "15",
+    question: "I had an accident (injury) while at work. Who should I contact?",
+    answer:
+      "After informing the person in charge at the dispatched employment company, please contact the Hiro Career Staff coordinator in charge.",
+  },
+  {
+    key: "16",
+    question:
+      "I have been in an accident at work and can no longer work. Is there a salary guarantee?",
+    answer:
+      "This can be handled under the Work-Related Accident Leave Compensation. For more information, please contact our toll-free number or speak to our coordinator.",
+  },
+  {
+    key: "17",
+    question:
+      "I would like to take time off work during the snowy season and start working again in the spring. Is this possible?",
+    answer:
+      "Yes, that is possible. When you start working, you will discuss this with your coordinator and decide on the contract period.",
+  },
+  {
+    key: "18",
+    question:
+      "What happens to my temporary employment if I become unable to work due to a personal accident or illness?",
+    answer:
+      "You will be considered absent and will not be paid. However, if you are a member of social insurance, you can apply for injury and sickness benefits from the Association Health Insurance. For more information, please contact the toll-free number: 0120070775.",
+  },
+  {
+    key: "19",
+    question: "Can I change from a temporary worker to a permanent employee?",
+    answer:
+      "Yes, that is possible. If you are interested, please contact your coordinator.",
+  },
+  {
+    key: "20",
+    question:
+      "The facility where I am currently working as a temporary worker has asked me if I would like to become a permanent employee. What should I do?",
+    answer:
+      "Please consult with your Hiro Career staff coordinator first. We will make arrangements with the placement company, taking into consideration your physical condition, etc.",
+  },
+  {
+    key: "21",
+    question: "Can I change from full-time to dependent work (or vice versa)?",
+    answer:
+      "Please consult with the coordinator in charge of the Hiro Career Staff first. In some cases, you may be asked to issue a document from a medical institution.",
+  },
+  {
+    key: "22",
+    question: "How to respond in the event of a disaster",
+    answer:
+      "We explain disaster response procedures when you start work, and require all employees to submit emergency contact information. If a disaster occurs while you are at work, please follow the instructions of your workplace facility.",
+  },
+  {
+    key: "23",
+    question:
+      "I don't get along with the coordinator I'm working with. Where can I get help?",
+    answer:
+      "Please contact us via our toll-free number: 0120070775  or go to our Contact us page.",
+  },
+  {
+    key: "24",
+    question:
+      "Who should I contact to request improvements for Hiro Career staff?",
+    answer:
+      "Please contact us via our toll-free number: 0120070775  or go to our Contact us page.",
+  },
+];
+
+export const faqsFive = [
+  {
+    key: "1",
+    question: "Who should I contact if I want to resign?",
+    answer:
+      "Please contact the coordinator in charge first. The coordinator will explain the details to the facility where you work.",
+  },
+  {
+    key: "2",
+    question:
+      "Please tell me the deadline, where to submit, and format for submitting my resignation request?",
+    answer:
+      "Please submit your resignation request (a standard format is available, but you can also create your own form) to your coordinator or the branch office you belong to at least one month before the date you wish to resign.",
+  },
+  {
+    key: "3",
+    question:
+      "I want to become a permanent employee at my current temporary workplace. What procedures do I need to follow?",
+    answer:
+      "The documents required to be submitted vary depending on the workplace, so we will present them individually at the time of job introduction",
+  },
+  {
+    key: "4",
+    question: "What should I return to the company when I leave?",
+    answer:
+      "Please return the health insurance card (only for those who have health insurance) and any other uniforms, shoes, etc. provided by Hiro Career staff (only for those who provided them). Also, please be careful not to make any mistakes when filling out your time card.",
+  },
+  {
+    key: "5",
+    question: "What do I need to return to the facility when I leave?",
+    answer:
+      "Please return all items loaned to you by your workplace (uniforms, shoes, keys, IC cards, etc.).",
+  },
+  {
+    key: "6",
+    question: "Can I get a separation certificate?",
+    answer:
+      "Yes, that is possible. (Please contact us in advance if necessary.)",
+  },
+  {
+    key: "7",
+    question:
+      "If I leave my company and would like to be introduced to new jobs, do I need to register again?",
+    answer:
+      "Basically, if you do not wish to be deleted, your registration information will remain the same, so there is no need to register again. Please contact your previous coordinator or our toll-free number: 0120070775",
   },
 ];

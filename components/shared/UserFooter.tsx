@@ -26,9 +26,9 @@ const UserFooter = () => {
                       key={homelink.key}
                       className="flex items-center justify-center md:justify-start p-regular-14"
                     >
-                      <Link href={homelink.sectionLink}>
+                      <a href={homelink.sectionLink}>
                         <p>{homelink.section}</p>
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}
@@ -58,9 +58,9 @@ const UserFooter = () => {
                       key={aboutuslink.key}
                       className="flex items-center justify-center md:justify-start p-regular-14"
                     >
-                      <Link href={aboutuslink.sectionLink}>
+                      <a href={aboutuslink.sectionLink}>
                         <p>{aboutuslink.section}</p>
-                      </Link>
+                      </a>
                     </li>
                   );
                 })}
@@ -106,7 +106,7 @@ const UserFooter = () => {
                 0120070775
               </p>
             </div>
-            <div className="flex items-center flex-row gap-5">
+            <div className="flex justify-center md:justify-start items-center flex-row gap-5">
               <div className="">
                 <Image
                   src="/assets/icons/fbicon.png"
