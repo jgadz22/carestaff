@@ -21,7 +21,7 @@ const Faqs = () => {
       </div>
       <div className="wrapper flex gap-5 md:gap-10">
         <div className="hidden lg:w-1/3 lg:flex relative">
-          <div className="w-full flex-center top-[25%]  h-[450px] flex-col bg-slate-100 py-5 px-10 rounded-2xl border border-slate-300 shadow-lg sticky">
+          <div className="w-full flex-center top-[50%]  h-[450px] flex-col bg-slate-100 py-5 px-10 rounded-2xl border border-slate-300 shadow-lg sticky">
             <p className="flex mb-2 md:mb-5 p-medium-24 md:h3-medium text-[#e27107]">
               Questions
             </p>

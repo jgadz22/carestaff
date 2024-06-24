@@ -26,7 +26,7 @@ const JobsTable = ({ jobsData }: { jobsData: any[] }) => {
               <p className="min-w-[150px]">Job Number</p>
             </TableHead>
             <TableHead className="text-center">
-              <p className="min-w-[150px]">Job Tile</p>
+              <p className="min-w-[150px]">Job Title</p>
             </TableHead>
             <TableHead className="text-center">
               <p className="min-w-[150px]">Industry</p>
