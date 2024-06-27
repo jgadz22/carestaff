@@ -1,17 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Input } from "../ui/input";
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { Input } from "../ui/input";
 
-const Search = ({
-  placeholder = "Search Email...",
+const JobListLocationSearch = ({
+  placeholder = "Search Location...",
 }: {
   placeholder?: string;
 }) => {
-  const [query, setQuery] = useState("");
+  const [location, setLocation] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -19,16 +19,16 @@ const Search = ({
     const delayDebounceFn = setTimeout(() => {
       let newUrl = "";
 
-      if (query) {
+      if (location) {
         newUrl = formUrlQuery({
           params: searchParams.toString(),
-          key: "query",
-          value: query,
+          key: "location",
+          value: location,
         });
       } else {
         newUrl = removeKeysFromQuery({
           params: searchParams.toString(),
-          keysToRemove: ["query"],
+          keysToRemove: ["location"],
         });
       }
 
@@ -36,7 +36,7 @@ const Search = ({
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [query, searchParams, router]);
+  }, [location, searchParams, router]);
 
   return (
     <div className="flex-center min-h-[54px] w-full overflow-hidden rounded-md bg-grey-50 px-4 py-2">
@@ -49,11 +49,11 @@ const Search = ({
       <Input
         type="text"
         placeholder={placeholder}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setLocation(e.target.value)}
         className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </div>
   );
 };
 
-export default Search;
+export default JobListLocationSearch;

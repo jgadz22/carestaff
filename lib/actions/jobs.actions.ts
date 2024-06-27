@@ -9,6 +9,7 @@ import {
   CreateJobParams,
   DeleteJobParams,
   GetAll,
+  GetAllSearch,
   UpdateJobParams,
 } from "@/types";
 
@@ -147,6 +148,54 @@ export async function updateJobDetails({
     revalidatePath(path);
 
     return JSON.parse(JSON.stringify(updatedMyid));
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+export async function getAllJobsSearch({
+  jobtitle,
+  location,
+  employment,
+  limit = 10,
+  page,
+}: GetAllSearch) {
+  try {
+    await connectToDatabase();
+
+    const jobtitleCondition = jobtitle
+      ? {
+          jobType: { $regex: jobtitle, $options: "i" },
+        }
+      : {};
+    const locationCondition = location
+      ? {
+          workLocation: { $regex: location, $options: "i" },
+        }
+      : {};
+    const employmentCondition = employment
+      ? {
+          employmentStatus: { $regex: employment, $options: "i" },
+        }
+      : {};
+    const conditions = {
+      $and: [jobtitleCondition, locationCondition, employmentCondition],
+    };
+    const skipAmount = (Number(page) - 1) * limit;
+
+    const sortCondition = { createdAt: "desc", _id: "asc" } as any;
+    const jobsQuery = Jobs.find(conditions)
+      .sort(sortCondition)
+      .skip(skipAmount)
+      .limit(limit);
+
+    const jobs = await populate(jobsQuery);
+    const jobsCount = await Jobs.countDocuments(conditions);
+
+    return {
+      data: JSON.parse(JSON.stringify(jobs)),
+      totalPages: Math.ceil(jobsCount / limit),
+    };
   } catch (error) {
     handleError(error);
   }

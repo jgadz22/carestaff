@@ -1,13 +1,17 @@
-import { getAllJobs } from "@/lib/actions/jobs.actions";
+import { getAllJobs, getAllJobsSearch } from "@/lib/actions/jobs.actions";
 import React from "react";
 import JobsListTable from "./JobsListTable";
 import JobsListCollection from "./JobsListCollection";
 import Pagination from "./Pagination";
 import Search from "./Search";
+import JobListEmploymentTypeFilter from "./JobListEmploymentTypeFilter";
+import JobListLocationSearch from "./JobListLocationSearch";
 
-const JobsList = async ({ page, searchText }: any) => {
-  const jobsData = await getAllJobs({
-    query: searchText,
+const JobsList = async ({ page, jobTitle, location, employment }: any) => {
+  const jobsData = await getAllJobsSearch({
+    jobtitle: jobTitle,
+    location,
+    employment,
     page,
     limit: 10,
   });
@@ -23,8 +27,22 @@ const JobsList = async ({ page, searchText }: any) => {
   return (
     <div className="w-full flex flex-col">
       <div className="w-full flex bg-[#53d1d1] py-10">
-        <div className="wrapper">
-          <Search placeholder="Search Job Title..." />
+        <div className="wrapper flex flex-col md:flex-row md:flex-center gap-5 px-3 md:px-5">
+          <div className="w-full flex relative">
+            <Search placeholder="Search Job Title..." />
+            <p className="flex absolute top-[-35px] md:top-[-30px] p-bold-24 text-white">
+              What
+            </p>
+          </div>
+          <div className="w-full flex flex-col md:relative">
+            <p className="flex md:absolute top-[-30px] p-bold-24 text-white">
+              Where
+            </p>
+            <JobListLocationSearch placeholder="Search Location..." />
+          </div>
+          <div className="w-full flex">
+            <JobListEmploymentTypeFilter />
+          </div>
         </div>
       </div>
       <section className="wrapper flex flex-col md:flex-row py-3 md:py-10">
@@ -39,7 +57,10 @@ const JobsList = async ({ page, searchText }: any) => {
           )}
         </div>
         <div className="hidden lg:w-3/5 lg:flex relative">
-          <div className="w-full flex-center flex-col py-5 px-10 rounded-2xl sticky">
+          <div className="w-full flex-center flex-col py-5 px-10 rounded-2xl sticky gap-10">
+            <div className="w-full flex-center h3-medium text-[#53d1d1]">
+              <p>Featured Jobs</p>
+            </div>
             <JobsListCollection
               jobsData={jobsDataRight?.data}
               emptyTitle="No Jobs have been created yet"

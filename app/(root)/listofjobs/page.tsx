@@ -4,7 +4,9 @@ import React from "react";
 
 const ListOfJobs = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
-  const searchText = (searchParams?.query as string) || "";
+  const jobTitle = (searchParams?.query as string) || "";
+  const employmentStatus = (searchParams?.employment as string) || "";
+  const locationSearch = (searchParams?.location as string) || "";
 
   return (
     <div className="w-full flex flex-col mb-5">
@@ -12,7 +14,12 @@ const ListOfJobs = async ({ searchParams }: SearchParamProps) => {
         List of Jobs
       </div>
       <div className="w-full">
-        <JobsList page={page} searchText={searchText} />
+        <JobsList
+          page={page}
+          jobTitle={jobTitle}
+          employment={employmentStatus}
+          location={locationSearch}
+        />
       </div>
     </div>
   );

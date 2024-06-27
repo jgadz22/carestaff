@@ -38,6 +38,14 @@ export type GetAll = {
   page: number;
 };
 
+export type GetAllSearch = {
+  jobtitle: string;
+  location: string;
+  employment: string;
+  limit: number;
+  page: number;
+};
+
 // ====== URL QUERY PARAMS
 export type UrlQueryParams = {
   params: string;

@@ -804,3 +804,26 @@ export const faqsFive = [
       "Basically, if you do not wish to be deleted, your registration information will remain the same, so there is no need to register again. Please contact your previous coordinator or our toll-free number: 0120070775",
   },
 ];
+
+export const employmentTypeSelection = [
+  {
+    key: "1",
+    employmentType: "full-time",
+  },
+  {
+    key: "2",
+    employmentType: "part-time",
+  },
+  {
+    key: "3",
+    employmentType: "temporary",
+  },
+  {
+    key: "4",
+    employmentType: "contractual",
+  },
+  {
+    key: "5",
+    employmentType: "regular",
+  },
+];
