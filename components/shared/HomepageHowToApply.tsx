@@ -14,7 +14,7 @@ const HomepageHowToApply = () => {
             alt="dog"
             className="flex absolute z-10 right-0 top-0"
           />
-          <div className="w-[calc(100%-37px)] h-[88px] flex-center bg-[#5dc9c5] text-white rounded-lg z-50">
+          <div className="w-[calc(100%-37px)] h-[88px] flex-center bg-[#5dc9c5] text-white rounded-lg z-30">
             <p className="h3-bold">How to apply?</p>
           </div>
         </div>

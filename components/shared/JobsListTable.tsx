@@ -10,14 +10,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import JobsTableRow from "./JobsTableRow";
 import JobListTableRow from "./JobListTableRow";
 
 const JobsListTable = ({ jobsData }: { jobsData: any[] }) => {
   return (
     <>
       <Table>
-        <TableCaption>A list of your recent added job.</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="">
@@ -31,7 +29,7 @@ const JobsListTable = ({ jobsData }: { jobsData: any[] }) => {
               </p>
             </TableHead>
             <TableHead className="">
-              <p className="min-w-[150px] p-medium-16 md:p-semibold-20">
+              <p className="min-w-[175px] p-medium-16 md:p-semibold-20">
                 Employer Name
               </p>
             </TableHead>

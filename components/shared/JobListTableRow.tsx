@@ -55,9 +55,7 @@ const JobListTableRow = ({ job }: { job: any }) => {
           {job.salaryRange}
         </TableCell>
         <TableCell className="p-regular-14 md:p-regular-14">
-          <Link href={`/listofjobs/viewemployer/${job.companyName}`}>
-            <p className="text-[#e27107] ">{job.companyName}</p>
-          </Link>
+          <p>{job.companyName}</p>
         </TableCell>
         <TableCell className="p-regular-14 md:p-regular-14">
           {job.industry}

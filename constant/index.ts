@@ -827,3 +827,50 @@ export const employmentTypeSelection = [
     employmentType: "regular",
   },
 ];
+
+export const contactUsSenderDefaultValues = {
+  photo: "",
+  companyName: "",
+  companyLocation: "",
+  email: "",
+  contactNumber: "",
+  companyOverview: "",
+};
+
+export const forRecruiters = [
+  {
+    key: "1",
+    htanumber: "01",
+    content:
+      "If you are a company that is having trouble recruiting human resources, please contact us using the inquiry form above or calling our toll-free number. The person in charge will contact you to arrange a return hearing schedule.",
+  },
+  {
+    key: "2",
+    htanumber: "02",
+    content: `Our sales representatives will visit the company and ask you in detail about the job opening, employment conditions, number and period of recruitment, employment status, and recruitment costs. Job openings can also be posted on the "Care Staff Service" site.`,
+  },
+  {
+    key: "3",
+    htanumber: "03",
+    content:
+      "We will check the list of job applicants registered with our company, and based on your request, we will propose human resources with high matching accuracy. In addition to job application information, we will also provide you with information at the time of the interview.",
+  },
+  {
+    key: "4",
+    htanumber: "04",
+    content:
+      "Based on the materials and information from the sales representative, a good person will set up an interview with the job seeker at any time with the consent of the job seeker. You can check the personality and compatibility with the company that cannot be seen in the job search information.",
+  },
+  {
+    key: "5",
+    htanumber: "05",
+    content:
+      "When making a hiring decision based on information such as interviews, we will clearly indicate the start date of employment, salary and other working conditions. The final decision will be made after both the company and the job seeker are satisfied.",
+  },
+  {
+    key: "6",
+    htanumber: "06",
+    content:
+      "On the first day of work, our sales representative will accompany you. In addition, when working as a temporary employee, we regularly visit and follow up with the temporary employee and the company to ensure that they can continue to work smoothly even after the start of work.",
+  },
+];

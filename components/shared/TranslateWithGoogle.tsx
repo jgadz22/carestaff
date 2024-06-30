@@ -28,8 +28,8 @@ const TranslateWithGoogle: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <div className="fixed right-0 bottom-[-2%] flex items-start justify-center gap-2 bg-gradient-to-r from-orange-500 to-[#53D1D1] p-3 pb-1 z-10">
+    <div className="p-regular-12 md:p-regular-16">
+      <div className="fixed right-0 bottom-[-2%] flex items-start justify-center gap-2 bg-gradient-to-r from-orange-500 to-[#53D1D1] p-3 pb-1 z-50">
         <Image
           src="/assets/icons/language.svg"
           alt="menu"

@@ -62,3 +62,12 @@ export const employerInfoSchema = z.object({
   companyNumber: z.string().min(1, "Fill up this field"),
   companyOverview: z.string().min(3, "Fill up this field"),
 });
+
+export const contactUsSenderSchema = z.object({
+  name: z.string().min(1, "Fill up this field"),
+  email: z.string().min(1, "Fill up this field"),
+  subject: z.string().min(1, "Fill up this field"),
+  contactNumber: z.string().min(1, "Fill up this field"),
+  message: z.string().min(3, "Fill up this field"),
+  isCheck: z.boolean(),
+});
