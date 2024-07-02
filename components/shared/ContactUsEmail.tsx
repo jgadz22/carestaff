@@ -20,8 +20,14 @@ import { contactUsSenderDefaultValues } from "@/constant";
 import { contactUsSenderSchema } from "@/lib/validator";
 import { Checkbox } from "../ui/checkbox";
 import Link from "next/link";
+import { contactUsSendEmail } from "@/lib/actions/sendEmail";
+import { useToast } from "../ui/use-toast";
+import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
 
 const ContactUsEmail = () => {
+  const { toast } = useToast();
+  const router = useRouter();
   const initialValues = contactUsSenderDefaultValues;
 
   const form = useForm<z.infer<typeof contactUsSenderSchema>>({
@@ -30,7 +36,32 @@ const ContactUsEmail = () => {
   });
 
   async function onSubmit(values: z.infer<typeof contactUsSenderSchema>) {
-    console.log(values);
+    try {
+      const newSenderEmail = await contactUsSendEmail(values);
+
+      if (newSenderEmail) {
+        form.reset();
+        toast({
+          variant: "success",
+          title: "Successfully",
+          description: "Email Successfully send.",
+        });
+        router.push(`/contactus`);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed sending Email.",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed sending Email.",
+      });
+      console.log(error);
+    }
   }
 
   return (
@@ -165,7 +196,7 @@ const ContactUsEmail = () => {
             />
             <div className="">
               <p>
-                I have read and accept the{" "}
+                I agree to the{" "}
                 <Link href="/siteterms" className="text-[#e27107]">
                   Site Terms of Use
                 </Link>
@@ -177,9 +208,17 @@ const ContactUsEmail = () => {
           <div className="flex-center w-full ">
             <Button
               type="submit"
-              className="flex-center bg-[#e27107] py-2 px-20"
+              disabled={!form.watch("isCheck") || form.formState.isSubmitting}
+              className="flex-center bg-[#e27107] hover:bg-orange-500 py-2 px-20"
             >
-              Submit
+              {form.formState.isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin cursor-not-allowed" />
+                  <p>Submitting...</p>
+                </>
+              ) : (
+                <p className="p-regular-12 md:p-regular-16">Submit</p>
+              )}
             </Button>
           </div>
         </form>

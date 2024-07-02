@@ -829,12 +829,12 @@ export const employmentTypeSelection = [
 ];
 
 export const contactUsSenderDefaultValues = {
-  photo: "",
-  companyName: "",
-  companyLocation: "",
+  name: "",
   email: "",
+  subject: "",
   contactNumber: "",
-  companyOverview: "",
+  message: "",
+  isCheck: false,
 };
 
 export const forRecruiters = [
