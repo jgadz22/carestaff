@@ -71,3 +71,13 @@ export const contactUsSenderSchema = z.object({
   message: z.string().min(3, "Fill up this field"),
   isCheck: z.boolean(),
 });
+
+export const jobApplicationSenderInfoSchema = z.object({
+  name: z.string().min(1, "Fill up this field"),
+  email: z.string().min(1, "Fill up this field"),
+  contactNumber: z.string().min(1, "Fill up this field"),
+  applyFor: z.string().min(1, "Fill up this field"),
+  message: z.string().min(3, "Fill up this field"),
+  jobApplicationAttachment: z.string().min(3, "Fill up this field"),
+  isCheck: z.boolean(),
+});

@@ -36,32 +36,31 @@ const ContactUsEmail = () => {
   });
 
   async function onSubmit(values: z.infer<typeof contactUsSenderSchema>) {
-    try {
-      const newSenderEmail = await contactUsSendEmail(values);
-
-      if (newSenderEmail) {
-        form.reset();
-        toast({
-          variant: "success",
-          title: "Successfully",
-          description: "Email Successfully send.",
-        });
-        router.push(`/contactus`);
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: "Failed sending Email.",
-        });
-      }
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed sending Email.",
-      });
-      console.log(error);
-    }
+    // try {
+    //   const newSenderEmail = await contactUsSendEmail(values);
+    //   if (newSenderEmail) {
+    //     form.reset();
+    //     toast({
+    //       variant: "success",
+    //       title: "Successfully",
+    //       description: "Email Successfully send.",
+    //     });
+    //     router.push(`/contactus`);
+    //   } else {
+    //     toast({
+    //       variant: "destructive",
+    //       title: "Error",
+    //       description: "Failed sending Email.",
+    //     });
+    //   }
+    // } catch (error) {
+    //   toast({
+    //     variant: "destructive",
+    //     title: "Error",
+    //     description: "Failed sending Email.",
+    //   });
+    //   console.log(error);
+    // }
   }
 
   return (
@@ -176,7 +175,7 @@ const ContactUsEmail = () => {
               )}
             />
           </div>
-          <div className="w-full flex items-center gap-2">
+          <div className="w-full flex-center items-center gap-2">
             <FormField
               control={form.control}
               name="isCheck"

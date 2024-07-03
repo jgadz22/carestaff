@@ -43,20 +43,6 @@ export async function createEmployerInfo({
   }
 }
 
-export async function getMyidById(employerId: string) {
-  try {
-    await connectToDatabase();
-
-    const employer = await populate(Employer.findById(employerId));
-
-    if (!employer) throw new Error("Employer not found");
-
-    return JSON.parse(JSON.stringify(employer));
-  } catch (error) {
-    handleError(error);
-  }
-}
-
 // UPDATE
 export async function updateEmployerInfo({
   userId,

@@ -46,7 +46,7 @@ const JobListTableRow = ({ job }: { job: any }) => {
     <>
       <TableRow key={job._id}>
         <TableCell className="p-mdium-14 md:p-semibold-18">
-          <Link href={`/listofjobs/viewjob/${job._id}`}>
+          <Link href={`/listofjobs/${job._id}/viewjob`}>
             <p className="text-[#e27107] ">{job.jobType}</p>
           </Link>
           <p className="p-regular-12 md:p-regular-14">{timeDifference}</p>

@@ -87,6 +87,12 @@ export type UpdateJobParams = {
   path: string;
 };
 
+export type JobDetailsDetailsProps = {
+  params: {
+    id: string;
+  };
+};
+
 // Employer
 export type UpdateEmployerDetailsProps = {
   params: {

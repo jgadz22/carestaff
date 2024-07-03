@@ -837,6 +837,16 @@ export const contactUsSenderDefaultValues = {
   isCheck: false,
 };
 
+export const jobApplicationSenderDefaultValues = {
+  name: "",
+  email: "",
+  contactNumber: "",
+  applyFor: "",
+  message: "",
+  jobApplicationAttachment: "",
+  isCheck: false,
+};
+
 export const forRecruiters = [
   {
     key: "1",
