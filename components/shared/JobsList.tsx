@@ -30,18 +30,23 @@ const JobsList = async ({ page, jobTitle, location, employment }: any) => {
         <div className="wrapper flex flex-col md:flex-row md:flex-center gap-5 px-3 md:px-5">
           <div className="w-full flex relative">
             <Search placeholder="Search Job Title..." />
-            <p className="flex absolute top-[-35px] md:top-[-30px] p-bold-24 text-white">
+            <p className="flex absolute top-[-35px] md:top-[-35px] p-bold-24 text-white">
               What
             </p>
           </div>
           <div className="w-full flex flex-col md:relative">
-            <p className="flex md:absolute top-[-30px] p-bold-24 text-white">
+            <p className="flex md:absolute ttop-[-35px] md:top-[-35px] p-bold-24 text-white">
               Where
             </p>
             <JobListLocationSearch placeholder="Search Location..." />
           </div>
-          <div className="w-full flex">
-            <JobListEmploymentTypeFilter />
+          <div className="w-full flex flex-col md:relative">
+            <p className="flex md:absolute top-[-35px] md:top-[-35px] p-bold-24 text-white">
+              Employment Type
+            </p>
+            <div className="w-full">
+              <JobListEmploymentTypeFilter />
+            </div>
           </div>
         </div>
       </div>

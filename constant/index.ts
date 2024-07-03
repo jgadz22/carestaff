@@ -808,23 +808,33 @@ export const faqsFive = [
 export const employmentTypeSelection = [
   {
     key: "1",
-    employmentType: "full-time",
+    employmentType: "All",
+    employmentTypeValue: "All",
   },
   {
     key: "2",
-    employmentType: "part-time",
+    employmentType: "Full-time",
+    employmentTypeValue: "full-time",
   },
   {
     key: "3",
-    employmentType: "temporary",
+    employmentType: "Part-time",
+    employmentTypeValue: "part-time",
   },
   {
     key: "4",
-    employmentType: "contractual",
+    employmentType: "Temporary",
+    employmentTypeValue: "temporary",
   },
   {
     key: "5",
-    employmentType: "regular",
+    employmentType: "Contractual",
+    employmentTypeValue: "contractual",
+  },
+  {
+    key: "6",
+    employmentType: "Regular",
+    employmentTypeValue: "regular",
   },
 ];
 

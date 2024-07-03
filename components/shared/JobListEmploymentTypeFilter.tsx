@@ -2,7 +2,7 @@
 
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -15,15 +15,20 @@ import { employmentTypeSelection } from "@/constant";
 const JobListEmploymentTypeFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [selectedOption, setSelectedOption] = useState("All");
 
-  const onSelectCategory = (employment: string) => {
+  const onSelectCategory = (
+    employment: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const newValue = employment.target.value;
+    setSelectedOption(newValue);
     let newUrl = "";
 
-    if (employment && employment !== "All") {
+    if (newValue && newValue !== "All") {
       newUrl = formUrlQuery({
         params: searchParams.toString(),
         key: "employment",
-        value: employment,
+        value: newValue,
       });
     } else {
       newUrl = removeKeysFromQuery({
@@ -36,26 +41,19 @@ const JobListEmploymentTypeFilter = () => {
   };
 
   return (
-    <Select onValueChange={(value: string) => onSelectCategory(value)}>
-      <SelectTrigger className="select-field">
-        <SelectValue placeholder="Employment Type" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="All" className="select-item p-regular-14">
-          All
-        </SelectItem>
-
+    <>
+      <select
+        value={selectedOption}
+        onChange={onSelectCategory}
+        className="select-field"
+      >
         {employmentTypeSelection.map((employment) => (
-          <SelectItem
-            value={employment.employmentType}
-            key={employment.key}
-            className="select-item p-regular-14"
-          >
+          <option key={employment.key} value={employment.employmentTypeValue}>
             {employment.employmentType}
-          </SelectItem>
+          </option>
         ))}
-      </SelectContent>
-    </Select>
+      </select>
+    </>
   );
 };
 
