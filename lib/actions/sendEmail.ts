@@ -23,7 +23,7 @@ export const contactUsSendEmail = async (contactUsSenderData: any) => {
         name: contactUsSenderData.name as string,
         email: contactUsSenderData.email as string,
         contactNumber: contactUsSenderData.contactNumber as string,
-        message: contactUsSenderData.message as string,
+        message: contactUsSenderData.message,
         isCheck: contactUsSenderData.isCheck as boolean,
       }),
     });
