@@ -27,7 +27,6 @@ import { Loader2 } from "lucide-react";
 
 const ContactUsEmail = () => {
   const { toast } = useToast();
-  const router = useRouter();
   const initialValues = contactUsSenderDefaultValues;
 
   const form = useForm<z.infer<typeof contactUsSenderSchema>>({
@@ -36,31 +35,40 @@ const ContactUsEmail = () => {
   });
 
   async function onSubmit(values: z.infer<typeof contactUsSenderSchema>) {
-    // try {
-    //   const newSenderEmail = await contactUsSendEmail(values);
-    //   if (newSenderEmail) {
-    //     form.reset();
-    //     toast({
-    //       variant: "success",
-    //       title: "Successfully",
-    //       description: "Email Successfully send.",
-    //     });
-    //     router.push(`/contactus`);
-    //   } else {
-    //     toast({
-    //       variant: "destructive",
-    //       title: "Error",
-    //       description: "Failed sending Email.",
-    //     });
-    //   }
-    // } catch (error) {
-    //   toast({
-    //     variant: "destructive",
-    //     title: "Error",
-    //     description: "Failed sending Email.",
-    //   });
-    //   console.log(error);
-    // }
+    try {
+      const response = await fetch("api/contact-us", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const { success, error } = await response.json();
+
+      if (success) {
+        form.reset();
+        toast({
+          variant: "success",
+          title: "Successfully",
+          description: "Email Successfully send.",
+        });
+      } else if (error) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed sending Email.",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed sending Email.",
+      });
+      console.log(error);
+    }
   }
 
   return (

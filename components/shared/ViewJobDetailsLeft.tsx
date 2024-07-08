@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
-  console.log(employer.imageUrl);
-
   return (
     <div className="flex flex-col w-full gap-5 md:gap-10">
       <div className="">

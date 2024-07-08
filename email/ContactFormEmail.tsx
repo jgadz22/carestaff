@@ -11,12 +11,13 @@ import {
   Text,
 } from "@react-email/components";
 import { Tailwind } from "@react-email/tailwind";
+import { stripHTMLTags } from "./helpers";
 
 type ContactFormEmailProps = {
   name: string;
   email: string;
   contactNumber: string;
-  message: string;
+  message: [];
   isCheck: boolean;
 };
 
@@ -28,7 +29,7 @@ const ContactFormEmail = ({
   isCheck,
 }: ContactFormEmailProps) => {
   return (
-    <Html>
+    <Html lang="en">
       <Head />
       <Preview>New message from carestaff website</Preview>
       <Tailwind>
@@ -38,7 +39,17 @@ const ContactFormEmail = ({
               <Heading>
                 You received a meesage from Carestaff website Contact Us Page.
               </Heading>
-              <Text>{message}</Text>
+              {message.map((mess: any, index) => {
+                return (
+                  <>
+                    {mess ? (
+                      <Text key={index}>{mess}</Text>
+                    ) : (
+                      <br key={index}></br>
+                    )}
+                  </>
+                );
+              })}
               <Hr />
               <Text>The sender's name is: {name}</Text>
               <Text>The sender's email is: {email}</Text>
