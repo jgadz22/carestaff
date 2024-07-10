@@ -201,6 +201,7 @@ const ViewJobDetailsRight = () => {
                       <Input
                         placeholder=""
                         {...field}
+                        type="file"
                         className="w-full flex"
                       />
                     </FormControl>

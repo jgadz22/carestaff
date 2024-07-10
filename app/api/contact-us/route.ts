@@ -24,6 +24,9 @@ export async function POST(request: any) {
     subject: data?.subject,
     replyTo: data?.email,
     html: emailHtml,
+    // attachments: [
+
+    // ]
   };
 
   try {
