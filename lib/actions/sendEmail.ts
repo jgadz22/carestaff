@@ -19,13 +19,13 @@ export const contactUsSendEmail = async (contactUsSenderData: any) => {
       subject: contactUsSenderData.subject,
       reply_to: contactUsSenderData.email,
       // text: contactUsSenderData.message,
-      react: React.createElement(ContactFormEmail, {
-        name: contactUsSenderData.name as string,
-        email: contactUsSenderData.email as string,
-        contactNumber: contactUsSenderData.contactNumber as string,
-        message: contactUsSenderData.message,
-        isCheck: contactUsSenderData.isCheck as boolean,
-      }),
+      // react: React.createElement(ContactFormEmail, {
+      //   name: contactUsSenderData.name as string,
+      //   email: contactUsSenderData.email as string,
+      //   contactNumber: contactUsSenderData.contactNumber as string,
+      //   message: contactUsSenderData.message,
+      //   isCheck: contactUsSenderData.isCheck as boolean,
+      // }),
     });
 
     if (resendEmail) {
