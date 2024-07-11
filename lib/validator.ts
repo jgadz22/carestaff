@@ -68,7 +68,10 @@ export const contactUsSenderSchema = z.object({
   email: z.string().min(1, "Fill up this field"),
   subject: z.string().min(1, "Fill up this field"),
   contactNumber: z.string().min(1, "Fill up this field"),
-  message: z.string().min(3, "Fill up this field"),
+  message: z
+    .string()
+    .min(3, "Fill up this field")
+    .max(1000, "Only 1000 characters will be allowed."),
   isCheck: z.boolean(),
 });
 
@@ -78,6 +81,6 @@ export const jobApplicationSenderInfoSchema = z.object({
   contactNumber: z.string().min(1, "Fill up this field"),
   applyFor: z.string().min(1, "Fill up this field"),
   message: z.string().min(3, "Fill up this field"),
-  jobApplicationAttachment: z.string().min(3, "Fill up this field"),
+  jobApplicationAttachment: z.any(),
   isCheck: z.boolean(),
 });

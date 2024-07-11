@@ -19,6 +19,7 @@ type ContactFormEmailProps = {
   contactNumber: string;
   message: [];
   isCheck: boolean;
+  page: string;
 };
 
 const ContactFormEmail = ({
@@ -27,6 +28,7 @@ const ContactFormEmail = ({
   contactNumber,
   message,
   isCheck,
+  page,
 }: ContactFormEmailProps) => {
   return (
     <Html lang="en">
@@ -36,20 +38,23 @@ const ContactFormEmail = ({
         <Body>
           <Container>
             <Section>
-              <Heading>
-                You received a meesage from Carestaff website Contact Us Page.
+              <Heading className="text-orange-600">
+                You received a meesage from Carestaff website {page}.
               </Heading>
-              {message.map((mess: any, index) => {
-                return (
-                  <>
-                    {mess ? (
-                      <Text key={index}>{mess}</Text>
-                    ) : (
-                      <br key={index}></br>
-                    )}
-                  </>
-                );
-              })}
+              <Hr />
+              <Section className="p-regular-14">
+                {message.map((mess: any, index) => {
+                  return (
+                    <>
+                      {mess ? (
+                        <Text key={index}>{mess}</Text>
+                      ) : (
+                        <br key={index}></br>
+                      )}
+                    </>
+                  );
+                })}
+              </Section>
               <Hr />
               <Text>The sender's name is: {name}</Text>
               <Text>The sender's email is: {email}</Text>

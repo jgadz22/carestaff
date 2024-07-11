@@ -24,11 +24,17 @@ import { Textarea } from "../ui/textarea";
 import { Checkbox } from "../ui/checkbox";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
+import { useState } from "react";
+import { FileUploadPdf } from "./FileUploadPdf";
+import { useUploadThing } from "@/lib/uploadthing";
 
 const ViewJobDetailsRight = () => {
+  const [files, setFiles] = useState<File[]>([]);
   const { toast } = useToast();
   const router = useRouter();
   const initialValues = jobApplicationSenderDefaultValues;
+
+  const { startUpload } = useUploadThing("pdfUploader");
 
   const form = useForm<z.infer<typeof jobApplicationSenderInfoSchema>>({
     resolver: zodResolver(jobApplicationSenderInfoSchema),
@@ -38,31 +44,52 @@ const ViewJobDetailsRight = () => {
   async function onSubmit(
     values: z.infer<typeof jobApplicationSenderInfoSchema>
   ) {
-    // try {
-    //   const newSenderEmail = await contactUsSendEmail(values);
-    //   if (newSenderEmail) {
-    //     form.reset();
-    //     toast({
-    //       variant: "success",
-    //       title: "Successfully",
-    //       description: "Email Successfully send.",
-    //     });
-    //     router.push(`/contactus`);
-    //   } else {
-    //     toast({
-    //       variant: "destructive",
-    //       title: "Error",
-    //       description: "Failed sending Email.",
-    //     });
-    //   }
-    // } catch (error) {
-    //   toast({
-    //     variant: "destructive",
-    //     title: "Error",
-    //     description: "Failed sending Email.",
-    //   });
-    //   console.log(error);
-    // }
+    let uploadedPdfUrl = values.jobApplicationAttachment;
+
+    if (files.length > 0) {
+      const uploadedPdf = await startUpload(files);
+
+      if (!uploadedPdf) {
+        return;
+      }
+
+      uploadedPdfUrl = uploadedPdf[0].url;
+    }
+
+    try {
+      const response = await fetch("/api/view-job-apply", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ ...values, pdfUrl: uploadedPdfUrl }),
+      });
+
+      const { success, error } = await response.json();
+
+      if (success) {
+        form.reset();
+        toast({
+          variant: "success",
+          title: "Successfully",
+          description: "Email Successfully send.",
+        });
+      } else if (error) {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed sending Email.",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed sending Email.",
+      });
+      console.log(error);
+    }
   }
 
   return (
@@ -198,11 +225,10 @@ const ViewJobDetailsRight = () => {
                       <span className="text-red-500">*</span>Attachment:
                     </FormLabel>
                     <FormControl className="w-full flex">
-                      <Input
-                        placeholder=""
-                        {...field}
-                        type="file"
-                        className="w-full flex"
+                      <FileUploadPdf
+                        onFieldChange={field.onChange}
+                        pdfUrl={field.value}
+                        setFiles={setFiles}
                       />
                     </FormControl>
                     <FormMessage />

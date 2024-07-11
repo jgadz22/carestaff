@@ -15,16 +15,22 @@ export async function POST(request: any) {
       contactNumber: data?.contactNumber as string,
       message: data?.message.split("\n"),
       isCheck: data?.isCheck as boolean,
-      page: "Contact Us Page",
+      page: "Job Application",
     })
   );
 
   const options = {
     from: `${data?.name} ${mailOptions.from}`,
     to: ["gadiazajoseph18@gmail.com", "jgadz22@gmail.com"],
-    subject: data?.subject,
+    subject: `Applying for the position of ${data?.applyFor}`,
     replyTo: data?.email,
     html: emailHtml,
+    attachments: [
+      {
+        filename: `${data.name} Resume.pdf`,
+        path: data?.pdfUrl,
+      },
+    ],
   };
 
   try {
