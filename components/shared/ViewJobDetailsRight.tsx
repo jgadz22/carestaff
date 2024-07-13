@@ -45,6 +45,7 @@ const ViewJobDetailsRight = () => {
     values: z.infer<typeof jobApplicationSenderInfoSchema>
   ) {
     let uploadedPdfUrl = values.jobApplicationAttachment;
+    let uploadedPdfKey = "";
 
     if (files.length > 0) {
       const uploadedPdf = await startUpload(files);
@@ -54,6 +55,7 @@ const ViewJobDetailsRight = () => {
       }
 
       uploadedPdfUrl = uploadedPdf[0].url;
+      uploadedPdfKey = uploadedPdf[0].key;
     }
 
     try {
@@ -63,7 +65,11 @@ const ViewJobDetailsRight = () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ ...values, pdfUrl: uploadedPdfUrl }),
+        body: JSON.stringify({
+          ...values,
+          pdfUrl: uploadedPdfUrl,
+          pdfKey: uploadedPdfKey,
+        }),
       });
 
       const { success, error } = await response.json();

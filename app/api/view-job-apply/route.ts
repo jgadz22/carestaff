@@ -4,9 +4,12 @@ import { NextResponse } from "next/server";
 import { render } from "@react-email/components";
 import ContactFormEmail from "@/email/ContactFormEmail";
 import React from "react";
+import { UTApi } from "uploadthing/server";
 
 export async function POST(request: any) {
   const data = await request.json();
+
+  const utapi = new UTApi();
 
   const emailHtml = render(
     React.createElement(ContactFormEmail, {
@@ -35,6 +38,8 @@ export async function POST(request: any) {
 
   try {
     await transporter.sendMail(options);
+
+    await utapi.deleteFiles(data?.pdfKey);
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
