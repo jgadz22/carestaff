@@ -130,7 +130,7 @@ export const carouselSlide = [
     contentFirst: "",
     contentSecond: "",
     buttonContent: "For Employers",
-    route: "/employers",
+    route: "/aboutus#companyprofile",
     image: "/assets/images/banner-second.jpg",
   },
   {
@@ -139,7 +139,7 @@ export const carouselSlide = [
     contentSecond: "",
     buttonContent: "See List of Offices",
     route: "/aboutus#listofoffices",
-    image: "assets/images/banner-third.jpg",
+    image: "/assets/images/banner-third.jpg",
   },
 ];
 

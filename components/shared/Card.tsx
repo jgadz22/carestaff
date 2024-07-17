@@ -1,8 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Card = ({ recentJob, employerData }: any) => {
+  const animation1 = useAnimation();
+  const animation2 = useAnimation();
+
+  const { ref: ref, inView: inView1 } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView1) {
+      animation1.start({
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 2,
+          type: "spring",
+          bounce: 0.3,
+          delay: 1,
+        },
+      });
+    } else {
+      animation1.start({
+        opacity: 0,
+        y: 100,
+      });
+    }
+  }, [inView1, animation1]);
+
+  useEffect(() => {
+    if (inView1) {
+      animation2.start({
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 2,
+          type: "spring",
+          bounce: 0.3,
+          delay: 1,
+        },
+      });
+    } else {
+      animation2.start({
+        opacity: 0,
+        x: -50,
+      });
+    }
+  }, [inView1, animation2]);
   return (
     <div className="flex max-w-[25rem] border border-slate-300 flex-col gap-2 p-5 shadow-lg shadow-slate-700 bg-white rounded-2xl">
       <div className="flex w-full h-[70px] mb-2">

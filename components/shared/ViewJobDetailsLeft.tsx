@@ -185,7 +185,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
               <p>Early Shift: {jobDetails?.earlyWorkingHours}</p>
             </li>
           )}
-          {jobDetails?.earlyWorkingHours && (
+          {jobDetails?.dayWorkingHours && (
             <li>
               <p>Day Shift: {jobDetails?.dayWorkingHours}</p>
             </li>

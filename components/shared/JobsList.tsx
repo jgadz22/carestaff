@@ -62,7 +62,7 @@ const JobsList = async ({ page, jobTitle, location, employment }: any) => {
           )}
         </div>
         <div className="hidden lg:w-3/5 lg:flex relative">
-          <div className="w-full flex justify-center flex-col py-5 px-10 rounded-2xl sticky gap-10">
+          <div className="w-full flex items-center flex-col py-5 px-10 rounded-2xl sticky gap-10">
             <div className="w-full flex justify-center h3-medium text-[#53d1d1]">
               <p>Featured Jobs</p>
             </div>
