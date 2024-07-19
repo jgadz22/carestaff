@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const HomepageRecentJobCircleTop = () => {
+const HomepageRecentJobTitle = () => {
   const animation1 = useAnimation();
 
   const { ref: ref, inView: inView1 } = useInView({
@@ -15,7 +15,7 @@ const HomepageRecentJobCircleTop = () => {
     if (inView1) {
       animation1.start({
         opacity: 1,
-        x: 0,
+        y: 0,
         transition: {
           duration: 2,
           type: "spring",
@@ -26,21 +26,19 @@ const HomepageRecentJobCircleTop = () => {
     } else {
       animation1.start({
         opacity: 0,
-        x: 100,
+        y: 100,
       });
     }
   }, [inView1, animation1]);
   return (
-    <div
+    <motion.div
       ref={ref}
-      className="absolute rounded-full w-[310px] h-[310px] top-[-80px] left-[-70px]"
+      animate={animation1}
+      className="text-[#e27107] h3-bold z-10"
     >
-      <motion.div
-        animate={animation1}
-        className="rounded-full bg-[#b9d6ea] w-[310px] h-[310px] "
-      ></motion.div>
-    </div>
+      Recent Jobs
+    </motion.div>
   );
 };
 
-export default HomepageRecentJobCircleTop;
+export default HomepageRecentJobTitle;

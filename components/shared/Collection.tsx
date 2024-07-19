@@ -18,8 +18,8 @@ const Collection = ({
     <>
       {jobsData.length > 0 ? (
         <div className="flex-center flex-col w-full">
-          <ul className="flex w-full flex-col gap-5 lg:flex-row lg:justify-center">
-            {jobsData.map(async (recentJob: any) => {
+          <ul className="flex w-full flex-col gap-5  xl:gap-7 2xl:gap-16 lg:flex-row lg:justify-center">
+            {jobsData.map(async (recentJob: any, index: any) => {
               const pageEmployer = 1;
               const searchTextEmployer = recentJob?.companyName;
 
@@ -36,6 +36,7 @@ const Collection = ({
                   <Card
                     recentJob={recentJob}
                     employerData={employerData?.data}
+                    duration={index}
                   />
                 </li>
               );

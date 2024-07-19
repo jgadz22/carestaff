@@ -59,23 +59,28 @@ const HomepageCarouselItem = ({
   }, [inView1, animation2]);
   return (
     <div
-      className="w-full h-[210px] md:h-[420px] flex items-center bg-cover bg-center gap-5 md:gap-20 flex-col pt-5 md:pt-10 relative"
+      className="w-full h-[210px] md:h-[420px] flex-center bg-cover bg-center gap-5 md:gap-20 flex-col pt-5 md:pt-10 relative"
       style={{ backgroundImage: `url(${image})` }}
       ref={ref}
     >
       <div className="flex w-full h-[210px] md:h-[420px] absolute top-0 left-0 bg-black/30 z-20"></div>
-      <motion.p
-        animate={animation1}
-        className="flex-center text-center text-white w-3/4 lg:w-1/2 z-30 p-semibold-14 md:h5-bold"
-      >
-        {contentFirst}
-      </motion.p>
-      <motion.p
-        animate={animation1}
-        className="flex-center text-center text-white w-3/4 lg:w-1/2 z-30 p-semibold-14 md:h5-bold"
-      >
-        {contentSecond}
-      </motion.p>
+
+      {contentFirst && (
+        <motion.p
+          animate={animation1}
+          className="flex-center text-center text-white w-3/4 lg:w-1/2 z-30 p-semibold-14 md:h5-bold"
+        >
+          {contentFirst}
+        </motion.p>
+      )}
+      {contentSecond && (
+        <motion.p
+          animate={animation1}
+          className="flex-center text-center text-white w-3/4 lg:w-1/2 z-30 p-semibold-14 md:h5-bold"
+        >
+          {contentSecond}
+        </motion.p>
+      )}
       <Link href={route} className="flex z-30">
         <motion.button
           animate={animation2}
