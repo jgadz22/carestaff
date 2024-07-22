@@ -168,9 +168,54 @@ export async function getAllJobsSearch({
           jobType: { $regex: jobtitle, $options: "i" },
         }
       : {};
-    const locationCondition = location
+    const locationWorkCondition = location
       ? {
           workLocation: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationHokkaidoCondition = location
+      ? {
+          municipalityHokkaido: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationAomoriaCondition = location
+      ? {
+          municipalityAomori: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationIwateCondition = location
+      ? {
+          municipalityIwate: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationAkitaCondition = location
+      ? {
+          municipalityAkita: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationMiyagiCondition = location
+      ? {
+          municipalityMiyagi: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationFukushimaCondition = location
+      ? {
+          municipalityFukushima: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationYamagataCondition = location
+      ? {
+          municipalityYamagata: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationTochgiCondition = location
+      ? {
+          municipalityTochigi: { $regex: location, $options: "i" },
+        }
+      : {};
+    const locationNaganoCondition = location
+      ? {
+          municipalityNagano: { $regex: location, $options: "i" },
         }
       : {};
     const employmentCondition = employment
@@ -179,7 +224,19 @@ export async function getAllJobsSearch({
         }
       : {};
     const conditions = {
-      $and: [jobtitleCondition, locationCondition, employmentCondition],
+      $and: [jobtitleCondition, employmentCondition],
+      $or: [
+        locationWorkCondition,
+        locationAkitaCondition,
+        locationHokkaidoCondition,
+        locationAomoriaCondition,
+        locationIwateCondition,
+        locationMiyagiCondition,
+        locationFukushimaCondition,
+        locationYamagataCondition,
+        locationTochgiCondition,
+        locationNaganoCondition,
+      ],
     };
     const skipAmount = (Number(page) - 1) * limit;
 

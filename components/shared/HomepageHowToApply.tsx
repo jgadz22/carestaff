@@ -23,8 +23,8 @@ const HomepageHowToApply = () => {
         opacity: 1,
         y: 0,
         transition: {
-          duration: 1,
-          delay: 1,
+          duration: 0.1,
+          delay: 0.1,
         },
       });
     } else {
@@ -41,7 +41,7 @@ const HomepageHowToApply = () => {
         opacity: 1,
         transition: {
           duration: 0.5,
-          delay: 2.5,
+          delay: 0.5,
         },
       });
     } else {
@@ -73,7 +73,7 @@ const HomepageHowToApply = () => {
             </motion.p>
           </div>
         </motion.div>
-        <div className="flex-center">
+        <div className="flex-center mb-5 md:mb-10">
           <HowToApplyCollection />
         </div>
       </div>

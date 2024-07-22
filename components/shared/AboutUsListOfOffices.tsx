@@ -1,6 +1,5 @@
 import React from "react";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import Image from "next/image";
 import { aboutUsTableSecond } from "@/constant";
 
 const AboutUsListOfOffices = () => {
@@ -21,8 +20,11 @@ const AboutUsListOfOffices = () => {
                   <TableCell className="p-regular-12 md:p-regular-16">
                     <div className="flex flex-col">
                       <p className="">{tablerowtwo.address}</p>
-                      <p className="">{tablerowtwo.telNumber}</p>
-                      <p className="">{tablerowtwo.email}</p>
+                      <p className="flex flex-row gap-5">
+                        {tablerowtwo.telNumber}
+                        <span className="">{tablerowtwo.fax}</span>
+                        <span className="">{tablerowtwo.email}</span>
+                      </p>
                     </div>
                   </TableCell>
                 </TableRow>

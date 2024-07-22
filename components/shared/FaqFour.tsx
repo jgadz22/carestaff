@@ -1,5 +1,7 @@
 import { faqsFour } from "@/constant";
 import React from "react";
+import FaqOneQuestion from "./FaqOneQuestion";
+import FaqOneAnswer from "./FaqOneAnswer";
 
 const FaqFour = () => {
   return (
@@ -11,19 +13,8 @@ const FaqFour = () => {
       {faqsFour.map((faq4: any) => {
         return (
           <div className="w-full flex flex-col  gap-2 md:gap-5" key={faq4.key}>
-            <div className="w-full flex rounded-md h-[70px] md:h-[50px] overflow-hidden">
-              <div className="w-[50px] md:w-[150px] bg-[#49CAE6]"></div>
-              <div className="w-full flex bg-faq-photo-img bg-contain  items-center">
-                <p className="w-full flex px-2 md:px-5 p-medium-12 md:p-medium-14 lg:p-medium-16">
-                  {faq4.question}
-                </p>
-              </div>
-            </div>
-            <div className="w-full flex">
-              <p className="w-full flex  p-regular-12 md:p-regular-14">
-                {faq4.answer}
-              </p>
-            </div>
+            <FaqOneQuestion question={faq4.question} bg="49CAE6" />
+            <FaqOneAnswer answer={faq4.answer} />
           </div>
         );
       })}

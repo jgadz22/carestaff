@@ -153,11 +153,28 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
           </span>
         </p>
       </div>
-      <div className="">
+      <div className="flex flex-col">
         <p>
           Location:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.workLocation}
+          </span>
+        </p>
+        <p>
+          City:{" "}
+          <span className="p-regular-12 lg:p-regular-16">
+            {jobDetails?.municipalityHokkaido &&
+              jobDetails?.municipalityHokkaido}
+            {jobDetails?.municipalityAomori && jobDetails?.municipalityAomori}
+            {jobDetails?.municipalityIwate && jobDetails?.municipalityIwate}
+            {jobDetails?.municipalityAkita && jobDetails?.municipalityAkita}
+            {jobDetails?.municipalityMiyagi && jobDetails?.municipalityMiyagi}
+            {jobDetails?.municipalityFukushima &&
+              jobDetails?.municipalityFukushima}
+            {jobDetails?.municipalityYamagata &&
+              jobDetails?.municipalityYamagata}
+            {jobDetails?.municipalityTochigi && jobDetails?.municipalityTochigi}
+            {jobDetails?.municipalityNagano && jobDetails?.municipalityNagano}
           </span>
         </p>
       </div>
@@ -182,32 +199,62 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
         <ul className="p-regular-12 lg:p-regular-16">
           {jobDetails?.earlyWorkingHours && (
             <li>
-              <p>Early Shift: {jobDetails?.earlyWorkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Early Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.earlyWorkingHours}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.dayWorkingHours && (
             <li>
-              <p>Day Shift: {jobDetails?.dayWorkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Day Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.dayWorkingHours}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.lateworkingHours && (
             <li>
-              <p>Late Shift: {jobDetails?.lateworkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Late Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.lateworkingHours}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.nightworkingHours && (
             <li>
-              <p>Night Shift: {jobDetails?.nightworkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Night Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.nightworkingHours}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.firstOtherkingHours && (
             <li>
-              <p>Other Shift: {jobDetails?.firstOtherWorkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Other Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.firstOtherWorkingHours}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.secondOtherWorkingHours && (
             <li>
-              <p>Other Shift: {jobDetails?.secondOtherWorkingHours}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Other Shift:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.secondOtherWorkingHours}
+                </span>
+              </p>
             </li>
           )}
         </ul>
@@ -217,18 +264,28 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
         <ul className="p-regular-12 lg:p-regular-16">
           {jobDetails?.holidaysOrVacations && (
             <li>
-              <p>Holiday/Vacation: {jobDetails?.holidaysOrVacations}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                Holiday/Vacation:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.holidaysOrVacations}
+                </span>
+              </p>
             </li>
           )}
           {jobDetails?.hpUpdateDate && (
             <li>
-              <p>HP Update Date: {jobDetails?.hpUpdateDate}</p>
+              <p className="p-medium-14 lg:p-medium-18">
+                HP Update Date:
+                <span className="p-regular-12 lg:p-regular-16">
+                  {jobDetails?.hpUpdateDate}
+                </span>
+              </p>
             </li>
           )}
         </ul>
       </div>
       <div className="">
-        <p>
+        <p className="p-medium-14 lg:p-medium-18">
           Points:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.point}
@@ -236,7 +293,7 @@ const ViewJobDetailsLeft = ({ jobDetails, employer }: any) => {
         </p>
       </div>
       <div className="">
-        <p>
+        <p className="p-medium-14 lg:p-medium-18">
           Person Incahrge Comment:{" "}
           <span className="p-regular-12 lg:p-regular-16">
             {jobDetails?.personInCharge}

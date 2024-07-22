@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import React from "react";
+import React, { useEffect } from "react";
 import { Textarea } from "../ui/textarea";
 import { contactUsSenderDefaultValues } from "@/constant";
 import { contactUsSenderSchema } from "@/lib/validator";
@@ -24,10 +24,38 @@ import { contactUsSendEmail } from "@/lib/actions/sendEmail";
 import { useToast } from "../ui/use-toast";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const ContactUsEmail = () => {
   const { toast } = useToast();
   const initialValues = contactUsSenderDefaultValues;
+
+  const animation1 = useAnimation();
+
+  const { ref: ref, inView: inView1 } = useInView({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView1) {
+      animation1.start({
+        opacity: 1,
+        scale: 1,
+        transition: {
+          duration: 1,
+          type: "spring",
+          bounce: 0.3,
+          delay: 0.5,
+        },
+      });
+    } else {
+      animation1.start({
+        opacity: 0,
+        scale: 0.3,
+      });
+    }
+  }, [inView1, animation1]);
 
   const form = useForm<z.infer<typeof contactUsSenderSchema>>({
     resolver: zodResolver(contactUsSenderSchema),
@@ -72,7 +100,11 @@ const ContactUsEmail = () => {
   }
 
   return (
-    <div className="w-full flex-center flex-col">
+    <motion.div
+      ref={ref}
+      animate={animation1}
+      className="w-full flex-center flex-col"
+    >
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -230,7 +262,7 @@ const ContactUsEmail = () => {
           </div>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,9 +3,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { YouTubeEmbed } from "@next/third-parties/google";
 
-const HomepageVideo = () => {
+const ContactUsTitle = () => {
   const animation1 = useAnimation();
 
   const { ref: ref, inView: inView1 } = useInView({
@@ -16,14 +15,18 @@ const HomepageVideo = () => {
     if (inView1) {
       animation1.start({
         opacity: 1,
+        y: 0,
         transition: {
-          duration: 1,
-          delay: 1,
+          duration: 0.5,
+          type: "spring",
+          bounce: 0.3,
+          delay: 0.5,
         },
       });
     } else {
       animation1.start({
         opacity: 0,
+        y: 100,
       });
     }
   }, [inView1, animation1]);
@@ -31,11 +34,11 @@ const HomepageVideo = () => {
     <motion.div
       ref={ref}
       animate={animation1}
-      className="w-full flex items-center justify-center mt-5 mb-10"
+      className="w-full flex-center bg-orange-stripe-img bg-contain bg-center h-[50px] md:h-[80px] text-white p-bold-20 md:h3-bold"
     >
-      <YouTubeEmbed videoid="LCWN1OQVOHA" width={700} params="controls=1" />
+      Contact Us
     </motion.div>
   );
 };
 
-export default HomepageVideo;
+export default ContactUsTitle;

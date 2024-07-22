@@ -3,9 +3,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { YouTubeEmbed } from "@next/third-parties/google";
 
-const HomepageVideo = () => {
+const FaqOneAnswer = ({ answer }: any) => {
   const animation1 = useAnimation();
 
   const { ref: ref, inView: inView1 } = useInView({
@@ -16,26 +15,31 @@ const HomepageVideo = () => {
     if (inView1) {
       animation1.start({
         opacity: 1,
+        x: 0,
         transition: {
-          duration: 1,
-          delay: 1,
+          duration: 0.5,
+          type: "spring",
+          bounce: 0.3,
+          delay: 0.5,
         },
       });
     } else {
       animation1.start({
         opacity: 0,
+        x: -100,
       });
     }
   }, [inView1, animation1]);
   return (
-    <motion.div
-      ref={ref}
-      animate={animation1}
-      className="w-full flex items-center justify-center mt-5 mb-10"
-    >
-      <YouTubeEmbed videoid="LCWN1OQVOHA" width={700} params="controls=1" />
-    </motion.div>
+    <div ref={ref} className="w-full flex">
+      <motion.p
+        animate={animation1}
+        className="w-full flex  p-regular-12 md:p-regular-14"
+      >
+        {answer}
+      </motion.p>
+    </div>
   );
 };
 
-export default HomepageVideo;
+export default FaqOneAnswer;
